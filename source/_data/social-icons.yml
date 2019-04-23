@@ -1,0 +1,22 @@
+
+# CONTENT
+content:
+ -
+  icon: 'facebook'
+  title: 'Facebook'
+  description: '@incrediblemarketing'
+  link: 'https://www.facebook.com/Incrediblemarketing'
+
+
+ -
+  icon: 'instagram'
+  title: 'Instagram'
+  description: '@incrediblemarketing'
+  link: 'https://www.instagram.com/incrediblemarketing'
+
+
+ -
+  icon: 'linkedin'
+  title: 'LinkedIn'
+  description: '@incrediblemarketing'
+  link: 'https://www.linkedin.com/company/incredible-marketing'

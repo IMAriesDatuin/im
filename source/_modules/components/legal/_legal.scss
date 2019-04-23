@@ -1,0 +1,76 @@
+/* -------------------------------------------------- */
+/* LEGAL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$legal-options: (
+
+);
+
+
+// MAIN
+.legal {
+
+	//@extend .frost-xl;
+	//@extend .box-shadow-xl;
+	position: fixed;
+	right: 2%;
+	bottom: 8%;
+	width: 400px;
+	height: auto;
+	padding: {
+		top: 3rem;
+		right: 3rem;
+		bottom: 3rem;
+		left: 3rem;
+	}
+	border-radius: 10px;
+	background: none;
+	background-color: rgba($black, 1);
+	transform-origin: bottom center;
+
+	@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+		background: rgba($black, 0.2);
+		-webkit-backdrop-filter: blur(48px);
+		backdrop-filter: blur(48px);
+	}
+
+	.headline {
+		margin-bottom: 0;
+		color: $primary;
+		font: $subheadline;
+		font-size: 1.5em;
+	}
+
+	p {
+
+	}
+
+	@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {
+		right: 0;
+		bottom: 0;
+		padding: {
+			top: map-get(map-get($cell, padding), top-mobile);
+			right: map-get(map-get($cell, padding), right-mobile);
+			bottom: map-get(map-get($cell, padding), bottom-mobile);
+			left: map-get(map-get($cell, padding), left-mobile);
+		}
+		width: 100%;
+		border-radius: 0;
+	}
+
+}
+
+
+// MODIFIERS
+.legal {
+
+	&.has-cookies {
+
+		.munch-munch {
+
+		}
+
+	}
+
+}

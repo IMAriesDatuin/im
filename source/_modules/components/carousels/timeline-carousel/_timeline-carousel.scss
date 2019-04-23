@@ -1,0 +1,485 @@
+/* -------------------------------------------------- */
+/* TIMELINE CAROUSEL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$timeline-carousel-options: (
+	background-color: transparent,
+	duration: 1000ms,
+	delay: 400ms,
+	ease: cubic-bezier(0.51,0.92,0.24,1.15)
+);
+
+
+// MAIN
+.timeline-carousel {
+
+	overflow: hidden;
+	height: 100%;
+	background: map-get($timeline-carousel-options, background-color);
+
+	.flickity-viewport {
+
+		//cursor: grab;
+		width: 100%;
+		height: 100%;
+		transition: height 400ms;
+		will-change: height;
+
+		.flickity-slider {
+			//@extend .flex;
+			//@extend .flex-bottom;
+		}
+
+	}
+
+	.carousel-cell {
+		
+		@include transition(
+			$property: (opacity, transform),
+			$duration: map-get($timeline-carousel-options, duration),
+			$delay: map-get($timeline-carousel-options, delay),
+			$ease: cubic-bezier(0.22,0.68,0,1.71),
+			$optimize: true
+		);
+		opacity: 0.75;
+		overflow: hidden;
+		margin: {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		width: 40%;
+		height: auto;
+		min-height: 100%;
+		transform: scale3d(0.95,0.95,1);
+		transform-origin: center center;
+
+		.cell {
+			overflow: hidden;
+			position: relative;
+			height: 100%;
+		}
+
+		.date {
+
+			padding-right: 2rem;
+			width: 50%;
+			color: $black;
+			font: $headline;
+			font-size: 18em;
+			line-height: 1em;
+			text-align: right;
+			border-right: 1px solid $primary;
+
+			.inner {
+
+				@include transition(
+					$property: (opacity, transform),
+					$duration: map-get($timeline-carousel-options, duration),
+					$delay: map-get($timeline-carousel-options, delay),
+					$ease: map-get($timeline-carousel-options, ease),
+					$optimize: true
+				);
+				transform: translate3d(75px,0,0);
+				/*
+				background: linear-gradient(to top, lighten($black, 3%) 0%, darken($black, 2%) 75%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				*/
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					opacity: 0;
+				}
+
+			}
+
+			@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-right: 0;
+				width: 100%;
+				color: $charcoal;
+				text-align: left;
+				border-right: none;
+				text-shadow: -1px -1px 0 $primary,
+							 1px -1px 0 $primary,
+							 -1px 1px 0 $primary,
+							 1px 1px 0 $primary;
+			}
+
+		}
+
+		.text-block {
+
+			padding: {
+				left: 2rem;
+				right: 2rem;
+			}
+
+			h2 {
+
+				@extend .text-medium;
+				@include transition(
+					$property: (color, text-shadow, transform),
+					$duration: map-get($timeline-carousel-options, duration),
+					$delay: map-get($timeline-carousel-options, delay),
+					$ease: map-get($timeline-carousel-options, ease),
+					$optimize: true
+				);
+				padding-bottom: 0.5rem;
+				color: $charcoal;
+				text-shadow: -1px -1px 0 $white,
+							 1px -1px 0 $white,
+							 -1px 1px 0 $white,
+							 1px 1px 0 $white;
+				transform: translate3d(-25px,0,0);
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					transform: translate3d(0,0,0);
+				}
+
+			}
+
+			p {
+				
+				@include transition(
+					$property: (transform),
+					$duration: map-get($timeline-carousel-options, duration),
+					$delay: map-get($timeline-carousel-options, delay),
+					$ease: map-get($timeline-carousel-options, ease),
+					$optimize: true
+				);
+				color: $gray;
+				transform: translate3d(-25px,0,0);
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					transform: translate3d(0,0,0);
+				}
+
+			}
+
+			@include break($type: 'width', $min: 0, $max: $laptop, $orientation: '') {
+
+				h2 {
+					font-size: 2em;
+				}
+
+			}
+
+			@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+				width: 100%;
+			}
+
+		}
+
+		/*
+		.background {
+			@include transition(
+				$property: (opacity),
+				$duration: map-get($timeline-carousel-options, duration) * 0.5,
+				$delay: map-get($timeline-carousel-options, delay),
+				$ease: cubic-bezier(0.22,0.68,0,1.71),
+				$optimize: true
+			);
+			z-index: -1;
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 250px;
+			height: 250px;
+			border-radius: 200px;
+			background: $black;
+			transform: translate(-50%, -50%) scale3d(1,1,1);
+			transform-origin: center center;
+		}
+		*/
+
+		@include break($type: 'width', $min: $tablet, $max: $laptop, $orientation: '') {
+			width: 45%;
+		}
+
+		@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: 'landscape') {
+			width: 50%;
+		}
+
+		@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: 'portrait') {
+			width: 75%;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			width: 90%;
+		}
+
+	}
+
+	.carousel-cell.is-selected {
+
+		opacity: 1;
+		transform: scale3d(1,1,1);
+
+		.date {
+
+			.inner {
+				opacity: 1;
+				transform: translate3d(0,0,0);
+			}
+
+		}
+
+		.text-block {
+
+			h2 {
+				opacity: 1;
+				color: $white;
+				text-shadow: -1px -1px 0 transparent,  
+			 				 1px -1px 0 transparent,
+			 				 -1px 1px 0 transparent,
+			 				 1px 1px 0 transparent;
+				transform: translate3d(0,0,0);
+			}
+
+			p {
+				opacity: 1;
+				transform: translate3d(0,0,0);
+			}
+
+		}
+
+		/*
+		.background {
+			opacity: 0.1;
+			transform: translate(-50%, -50%) scale3d(1,1,1);
+		}
+		*/
+
+	}
+
+	.flickity-prev-next-button {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 400ms,
+			$delay: 0,
+			$ease: ease-out,
+			$optimize: true
+		);
+		pointer-events: none;
+		opacity: 1;
+		overflow: hidden;
+		width: 25%;
+		height: 100%;
+		border-radius: 0;
+		background: transparent;
+
+		svg {
+			display: none;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			//display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.previous {
+
+			@include fade(
+				$type: 'left',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			left: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+		&.next {
+
+			@include fade(
+				$type: 'right',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			right: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+	}
+
+	.flickity-page-dots {
+
+		position: relative;
+		margin: {
+			top: 4rem;
+			bottom: 4rem;
+		}
+
+		&::after {
+			@extend .pseudo;
+			@extend .center-vh;
+			z-index: -1;
+			width: 100%;
+			height: 1px;
+			border-top: 1px dashed $dark-gray;
+		}
+
+		li {
+
+			@include transition(
+				$property: (opacity, border, background, transform),
+				$duration: 200ms,
+				$delay: 0,
+				$ease: ease-in-out,
+				$optimize: true
+			);
+			opacity: 1;
+			overflow: visible;
+			position: relative;
+			margin: {
+				left: 10rem;
+				right: 10rem;
+			}
+			padding: {
+				left: 0;
+				right: 0;
+			}
+			width: 25px;
+			height: 25px;
+			background: $charcoal;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&::before {
+				@extend .pseudo;
+				//@extend .center-vh;
+				@include transition(
+					$property: (opacity, border, background, transform),
+					$duration: 200ms,
+					$delay: 0,
+					$ease: ease-out,
+					$optimize: true
+				);
+				z-index: 1;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 60%;
+				height: 60%;
+				border-radius: 100%;
+				background: $white;
+				transform: translate(-50%,-50%) scale3d(0,0,1);
+			}
+
+			&::after {
+				@extend .pseudo;
+				@extend .center-vh;
+				@include transition(
+					$property: (opacity, border, background, transform),
+					$duration: 200ms,
+					$delay: 0,
+					$ease: ease-in-out,
+					$optimize: true
+				);
+				z-index: 0;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border-radius: 100%;
+				border: 1px solid $dark-gray;
+			}
+
+			&.is-selected {
+
+				//background: $primary;
+
+				&::before {
+					transform: translate(-50%,-50%) scale3d(1,1,1);
+				}
+
+				&::after {
+					border: 1px solid $white;
+				}
+
+			}
+
+			@include break($type: 'width', $min: $tablet, $max: 1500px, $orientation: '') {
+				margin: {
+					left: 5rem;
+					right: 5rem;
+				}
+			}
+
+			@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: '') {
+				margin: {
+					left: 4rem;
+					right: 4rem;
+				}
+			}
+
+			@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+				margin: {
+					left: 1.25rem;
+					right: 1.25rem;
+				}
+				width: 20px;
+				height: 20px;
+			}
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.timeline-carousel {
+
+	$self: &;
+
+	&.is-first-cell {
+		
+	}
+
+	&.is-last-cell {
+		
+	}
+
+}

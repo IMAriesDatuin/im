@@ -1,0 +1,134 @@
+/* -------------------------------------------------- */
+/* BUTTON (DEFAULT)
+/* -------------------------------------------------- */
+
+// OPTIONS
+$button-options: (
+	sizes: (
+		small: 25%,
+		medium: 50%,
+		large: 75%
+	),
+	text-color: $white,
+	text-hover-color: $primary,
+	background-color: $accent,
+	background-hover-color: $white,
+	radius: 50px,
+	duration: 200ms
+);
+
+
+// COLORS
+.button#{$modifier} {
+
+	// COLORS
+	@each $name, $color in $colors {
+
+		// DEFAULT
+		&#{$name} {
+			background: $color;
+		}
+
+
+		// HOVER
+		&#{$name}-hover:hover {
+			background: $color;
+		}
+
+	}
+
+}
+
+
+// COMMON
+.button {
+
+	@extend .flex;
+	@extend .flex-vh;
+	@include transition(
+		$property: (color, background),
+		$duration: map-get($button-options, duration),
+		$delay: 0,
+		$ease: ease-in-out,
+		$optimize: true
+	);
+	outline: none;
+	margin: {
+		top: 2rem;
+		//right: auto;
+		bottom: 2rem;
+		//left: auto;
+	};
+	padding: {
+		top: 0.75rem;
+		right: 0.75rem;
+		bottom: 0.75rem;
+		left: 0.75rem;
+	};
+	width: auto;
+	height: auto;
+	min-height: 25px;
+	color: map-get($button-options, text-color);
+	font-size: 1em;
+	text-decoration: none;
+	background: map-get($button-options, background-color);
+
+	&:hover {
+		color: map-get($button-options, text-hover-color);
+		background: map-get($button-options, background-hover-color);
+	}
+
+	&:active,
+	&:focus {
+		color: map-get($button-options, text-hover-color);
+		background: map-get($button-options, background-hover-color);
+	}
+
+
+	// MODIFIERS
+	&#{'-small'} {
+
+		max-width: map-get(map-get($button-options, sizes), small);
+		//max-height: 50px;
+
+	}
+
+	&#{'-medium'} {
+
+		max-width: map-get(map-get($button-options, sizes), medium);
+		//max-height: 75px;
+
+	}
+
+	&#{'-large'} {
+
+		max-width: map-get(map-get($button-options, sizes), large);
+		//max-height: 100px;
+
+	}
+
+	@include break($type: 'width', $min: 0, $max: $mobile) {
+
+		&#{'-expand'} {
+			margin: {
+				left: auto;
+				right: auto;
+			}
+			max-width: 100%;
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.button {
+
+	&.disabled {
+		cursor: pointer;
+		pointer-events: none;
+		background: $gray;
+	}
+
+}

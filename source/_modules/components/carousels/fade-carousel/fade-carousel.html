@@ -1,0 +1,199 @@
+
+<!-- CONTENT: FADE CAROUSEL -->
+<div class="fade-carousel carousel">
+
+
+	{{#each fade-carousel.content}}
+	<div class="media-{{ type }} carousel-cell carousel-lazy-load">
+
+
+		<div class="carousel-container">
+
+
+			<div class="media-container responsive-embed widescreen cursor-play-pause-content">
+
+				 <video id="{{ id }}" width="100%" height="100%" title="{{ id }}" preload="none" poster="{{ image-src }}" controls playsinline tabindex="0">
+
+					<source type="video/{{ format }}" src="{{ video-src }}"/>
+
+				</video>
+
+			</div>
+
+
+
+			<picture class="cursor-draggable-content">
+
+				<source type="image/webp" data-srcset="{{ root }}{{ webp }}">
+				<img data-flickity-lazyload="{{ root }}{{ image-src }}" alt="{{ cite }} / {{ company }}">
+
+			</picture>
+
+
+		</div>
+
+
+	</div>
+	{{/each}}
+
+
+</div>
+<!-- // CONTENT: FADE CAROUSEL -->
+
+
+
+
+
+<!-- CONTENT: PARALLAX NAV CAROUSEL -->
+<section class="fade-nav-carousel nav-carousel carousel position-reset-tablet position-reset-mobile icons-container">
+
+
+	<!-- CELL -->
+	<article id="content-services" class="carousel-cell">
+
+
+		<div class="card">
+
+			<!-- ICON -->
+			{{> icon-content}}
+			<!-- // ICON -->
+
+
+			<!-- COPY -->
+			<h2 class="headline">Content</h2>
+			<p>Build barriers against competition and commoditization by becoming your patient's anchor of expertise. So when everyone else competes on price, you can charge more.</p>
+			<!-- // COPY -->
+
+		</div>
+
+
+	</article>
+	<!-- // CELL -->
+
+
+
+
+
+	<!-- CELL -->
+	<article id="seo-marketing-services" class="carousel-cell">
+
+
+		<div class="card">
+
+			<!-- ICON -->
+			{{> icon-seo-marketing}}
+			<!-- // ICON -->
+
+
+			<!-- COPY -->
+			<h2 class="headline">SEO Marketing</h2>
+			<p>Turn rankings into revenue by obsessing over your patients' needs, not Google's. Since last time we checked, Google doesn't fill out consultation forms.</p>
+			<!-- // COPY -->
+
+		</div>
+
+
+	</article>
+	<!-- // CELL -->
+
+
+
+
+
+	<!-- CELL -->
+	<article id="social-media-services" class="carousel-cell">
+
+
+		<div class="card">
+
+			<!-- ICON -->
+			{{> icon-social-media}}
+			<!-- // ICON -->
+
+
+			<!-- COPY -->
+			<h2 class="headline">Social Media</h2>
+			<p>Connect with patients on a human level-one small, meaningful interaction at a time. Because patients buy from people, not practices.</p>
+			<!-- // COPY -->
+
+		</div>
+
+
+	</article>
+	<!-- // CELL -->
+
+
+
+
+
+	<!-- CELL -->
+	<article id="website-services" class="carousel-cell">
+
+
+		<div class="card">
+
+			<!-- ICON -->
+			{{> icon-websites}}
+			<!-- // ICON -->
+
+
+			<!-- COPY -->
+			<h2 class="headline">Websites</h2>
+			<p>Transform your "brochure" website into your marketing infrastructure. Everyone has a beautiful website, but not everyone has a system for winning new patients.</p>
+			<!-- // COPY -->
+
+		</div>
+
+
+	</article>
+	<!-- // CELL -->
+
+
+</section>
+<!-- // CONTENT: PARALAX NAV CAROUSEL -->
+
+
+
+
+
+
+
+
+<!-- CONTENT: PARALLAX NAV CAROUSEL -->
+<div class="fade-nav-carousel.disabled nav-carousel carousel position-reset-tablet position-reset-mobile hide">
+
+
+	{{#each fade-carousel.content}}
+	<div class="carousel-cell card">
+
+
+
+		<!-- ICON -->
+		<svg class="services-icon" aria-labelledby="logo-title logo-description" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 90 90">
+
+
+			<title id="logo-title">--name</title>
+			<desc id="logo-description">We create incredible digital experiences for the best brands in healthcare.</desc>
+
+
+
+
+
+
+
+		</svg>
+		<!-- // ICON -->
+
+
+		<!-- COPY -->
+		<h2 class="headline">{{ title }}</h2>
+		<p>{{ copy }}</p>
+		<!-- // COPY -->
+
+
+	</div>
+	{{/each}}
+
+
+</div>
+<!-- // CONTENT: PARALAX NAV CAROUSEL -->

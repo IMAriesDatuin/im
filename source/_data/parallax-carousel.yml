@@ -1,0 +1,66 @@
+
+# CONTENT
+content:
+ -
+  type: 'video'
+  format: 'youtube'
+  id: 'playe-00'
+  video-src: 'https://www.youtube.com/watch?v=urhhtzCMeZU'
+  image-src: 'assets/video-posters/artas.svg'
+  webp: 'assets/video-posters/artas.svg'
+  thumb: 'assets/logos/artas.svg'
+  quote: 'So one afternoon, while walking home from school, quirky 10th grader Becky Walters finds a wounded Pegasus in the woods. And she becomes...The Horse Flyer.'
+  cite: 'Pamela Halpert'
+  company: 'Artas Hair Restoration'
+
+
+ -
+  type: 'video'
+  format: 'youtube'
+  id: 'playe-01'
+  video-src: 'https://www.youtube.com/watch?v=Idf4LJnYyHc'
+  image-src: 'assets/video-posters/btl.svg'
+  webp: 'assets/video-posters/btl.webp'
+  thumb: 'assets/logos/btl.svg'
+  quote: 'So one afternoon, while walking home from school, quirky 10th grader Becky Walters finds a wounded Pegasus in the woods. And she becomes...The Horse Flyer.'
+  cite: 'Pamela Halpert'
+  company: 'BTL'
+
+
+ -
+  type: 'video'
+  format: 'youtube'
+  id: 'playe-02'
+  video-src: 'https://www.youtube.com/watch?v=Xcork9n2oO4'
+  image-src: 'assets/video-posters/fxck-cancer.svg'
+  webp: 'assets/video-posters/fxck-cancer.webp'
+  thumb: 'assets/logos/fxck-cancer.svg'
+  quote: 'So one afternoon, while walking home from school, quirky 10th grader Becky Walters finds a wounded Pegasus in the woods. And she becomes...The Horse Flyer.'
+  cite: 'Pamela Halpert'
+  company: 'Fxck Cancer'
+
+
+ -
+  type: 'video'
+  format: 'youtube'
+  id: 'playe-03'
+  video-src: 'https://www.youtube.com/watch?v=E5E4y4ESlLU'
+  image-src: 'assets/video-posters/greg-mueller.svg'
+  webp: 'assets/video-posters/greg-mueller.webp'
+  thumb: 'assets/logos/greg-mueller.svg'
+  quote: 'So one afternoon, while walking home from school, quirky 10th grader Becky Walters finds a wounded Pegasus in the woods. And she becomes...The Horse Flyer.'
+  cite: 'Pamela Halpert'
+  company: 'Greg Mueller'
+
+
+ -
+  type: 'video'
+  format: 'youtube'
+  id: 'playe-05'
+  video-src: 'https://www.youtube.com/watch?v=pMLYlLdclIQ'
+  image-src: 'assets/video-posters/williams-center.svg'
+  webp: 'assets/video-posters/williams-center.webp'
+  thumb: 'assets/logos/williams-center.svg'
+  quote: 'So one afternoon, while walking home from school, quirky 10th grader Becky Walters finds a wounded Pegasus in the woods. And she becomes...The Horse Flyer.'
+  cite: 'Pamela Halpert'
+  company: 'Williams Center'

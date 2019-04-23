@@ -1,0 +1,23 @@
+/* -------------------------------------------------- */
+/* ROTATE
+/* -------------------------------------------------- */
+
+.rotate#{$modifier} {
+
+	&#{'90'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			transform: rotate(-90deg);
+		}
+
+	}
+
+	&#{'45'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			transform: rotate(45deg);
+		}
+
+	}
+
+}

@@ -1,0 +1,49 @@
+
+# CONTENT
+content:
+ -
+  type: 'image'
+  format: 'mp4'
+  id: 'digital-content-services'
+  video-src: 'assets/index/media-02.mp4'
+  image-src: 'assets/stock/digital-content.jpg'
+  webp: 'assets/stock/digital-content.webp'
+  thumb: 'assets/logos/artas.svg'
+  title: 'Content'
+  copy: Build barriers against competition and commoditization by becoming your patient's anchor of expertise. So when everyone else competes on price, you can charge more.
+
+
+ -
+  type: 'image'
+  format: 'youtube'
+  id: 'seo-marketing-services'
+  video-src: 'https://www.youtube.com/watch?v=Idf4LJnYyHc'
+  image-src: 'assets/stock/marketing.jpg'
+  webp: 'assets/stock/marketing.webp'
+  thumb: 'assets/logos/btl.svg'
+  title: 'SEO Marketing'
+  copy: Turn rankings into revenue by obsessing over your patients' needs, not Google's. Since last time we checked, Google doesn't fill out consultation forms.
+
+
+ -
+  type: 'image'
+  format: 'youtube'
+  id: 'social-media-services'
+  video-src: 'https://www.youtube.com/watch?v=Xcork9n2oO4'
+  image-src: 'assets/stock/social-media.jpg'
+  webp: 'assets/stock/social-media.webp'
+  thumb: 'assets/logos/fxck-cancer.svg'
+  title: 'Social Media'
+  copy: Connect with patients on a human level-one small, meaningful interaction at a time. Because patients buy from people, not practices.
+
+
+ -
+  type: 'image'
+  format: 'youtube'
+  id: 'website-services'
+  video-src: 'https://www.youtube.com/watch?v=E5E4y4ESlLU'
+  image-src: 'assets/stock/ux.jpg'
+  webp: 'assets/stock/ux.webp'
+  thumb: 'assets/logos/greg-mueller.svg'
+  title: 'Websites'
+  copy: Transform your "brochure" website into your marketing infrastructure. Everyone has a beautiful website, but not everyone has a system for winning new patients.

@@ -1,0 +1,195 @@
+/* -------------------------------------------------- */
+/* SECTION PROGRESS
+/* -------------------------------------------------- */
+
+// OPTIONS
+$section-progress-options: (
+	dot-color: $gray,
+	dot-color-active: $white,
+	line-color: $gray,
+	line-color-active: $primary,
+	background-color: $dark-gray,
+	thickness: 1px,
+	dot-style: solid,
+	line-style: dotted,
+	duration: 400ms
+);
+
+
+// MAIN
+.section-progress { // Progress Background Line
+
+	z-index: 2;
+	pointer-events: none;
+	opacity: 1;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 25px;
+	width: 2px;
+	height: 100%;
+	border-right: map-get($section-progress-options, thickness) map-get($section-progress-options, line-style) map-get($section-progress-options, background-color);
+	background: transparent;
+
+	&::before { // Progress Foreground Line
+		@extend .pseudo;
+		@include transition(
+			$property: (transform),
+			$duration: map-get($section-progress-options, duration),
+			$delay: 0,
+			$ease: ease-out,
+			$optimize: true
+		);
+		width: map-get($section-progress-options, thickness);
+		height: 100%;
+		background: map-get($section-progress-options, line-color);
+		transform: scale3d(1,0,1);
+		transform-origin: top center;
+		mix-blend-mode: difference;
+	}
+
+	&-dot { // Dot (Inactive)
+		@extend .center-h;
+		@include transition(
+			$property: (border),
+			$duration: map-get($section-progress-options, duration) / 2,
+			$delay: map-get($section-progress-options, duration),
+			$ease: cubic-bezier(0.51,0.92,0.24,1.15),
+			$optimize: true
+		);
+		overflow: visible;
+		position: absolute;
+		bottom: 0;
+		width: 25px;
+		height: 25px;
+		border-radius: 25px;
+		border: map-get($section-progress-options, thickness) map-get($section-progress-options, dot-style) map-get($section-progress-options, background-color);
+		background: $charcoal;
+
+		&::before { // Dot (Active)
+			@extend .pseudo;
+			@include transition(
+				$property: (transform),
+				$duration: map-get($section-progress-options, duration) / 2,
+				$delay: map-get($section-progress-options, duration),
+				$ease: cubic-bezier(0.51,0.92,0.24,1.15),
+				$optimize: true
+			);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 60%;
+			height: 60%;
+			border-radius: 100%;
+			background: map-get($section-progress-options, dot-color);
+			transform: translate(-50%,-50%) scale3d(0,0,1);
+			transform-origin: center center;
+		}
+
+	}
+
+	@include break($type: 'width', $min: 0, $max: $laptop, $orientation: '') {
+		opacity: 0;
+	}
+
+}
+
+
+// 	FOOTER
+footer {
+
+	.section-progress {
+
+		height: 100%;
+
+		&.achievement-unlocked {
+
+			&::before {
+				background: map-get($section-progress-options, line-color-active);
+				//transform: scale3d(1,1,1);
+			}
+
+			.section-progress-dot {
+
+				@extend .alpha;
+				border-color: map-get($section-progress-options, dot-color-active);
+
+				&::before {
+					background: map-get($section-progress-options, dot-color-active);
+					//transform: translate(-50%,-50%) scale3d(1,1,1);
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+/*
+footer:not([data-page=index]) {
+
+	.section-progress {
+		display: none;
+	}
+
+}
+*/
+
+
+// MODIFIERS
+.section-progress {
+
+	$self: &;
+
+	&.achievement-unlocked {
+
+		&::before {
+
+			transform: scale3d(1,1,1);
+		}
+
+		#{$self}-dot {
+
+			border-color: map-get($section-progress-options, dot-color-active);
+
+			&::before {
+				background: map-get($section-progress-options, dot-color-active);
+				transform: translate(-50%,-50%) scale3d(1,1,1);
+			}
+
+		}
+
+	}
+
+
+	&.is-ready {
+
+	}
+
+	&.is-top {
+
+	}
+
+	&.is-not-top {
+
+	}
+
+	&.is-bottom {
+
+	}
+
+	&.is-not-bottom {
+
+	}
+
+	&.is-scrolling-up {
+
+	}
+
+	&.is-scrolling-down {
+
+	}
+
+}

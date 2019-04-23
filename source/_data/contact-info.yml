@@ -1,0 +1,47 @@
+
+# CONTENT
+content:
+ -
+  icon: 'mobile-alt'
+  title: 'Phone Number'
+  description: '702-555-7777'
+  link: 'tel:+1-702-555-7777'
+
+
+ -
+  icon: envelope
+  title: Email
+  description: 'hello@incrediblemarketing.com'
+  link: 'mailto:hello@incrediblemarketing.com'
+
+
+ -
+  icon: 'map-marker-alt'
+  title: 'California'
+  description: '25361 Commercentre Dr, Ste 100<br>Lake Forest, CA 92630<br>USA'
+  link: 'https://www.google.com/maps/place/Incredible+Marketing/@36.074001,-115.1010113,19.71z/data=!4m5!3m4!1s0x80c8cfaed07d3afb:0x10fa1ffef002d027!8m2!3d36.0740671!4d-115.1013304'
+  phone: '1 800 949 0133'
+ 
+
+ -
+  icon: 'map-marker-alt'
+  title: 'Minnesota'
+  description: '901 North Third St, Ste 232<br>Minneapolis, MN 55401<br>USA'
+  link: 'https://www.google.com/maps/place/Incredible+Marketing/@36.074001,-115.1010113,19.71z/data=!4m5!3m4!1s0x80c8cfaed07d3afb:0x10fa1ffef002d027!8m2!3d36.0740671!4d-115.1013304'
+  phone: '1 800 949 0133'
+ 
+
+ -
+  icon: 'map-marker-alt'
+  title: 'Nevada'
+  description: '6375 S Pecos Rd No. #207<br>Las Vegas, NV 89120<br>USA'
+  link: 'https://www.google.com/maps/place/Incredible+Marketing/@36.074001,-115.1010113,19.71z/data=!4m5!3m4!1s0x80c8cfaed07d3afb:0x10fa1ffef002d027!8m2!3d36.0740671!4d-115.1013304'
+  phone: '1 800 949 0133'
+ 
+
+ -
+  icon: 'map-marker-alt'
+  title: 'Victoria'
+  description: '46-50 Recent Street<br>Melbourne, VIC 3121<br>Australia'
+  link: 'https://www.google.com/maps/place/Incredible+Marketing/@36.074001,-115.1010113,19.71z/data=!4m5!3m4!1s0x80c8cfaed07d3afb:0x10fa1ffef002d027!8m2!3d36.0740671!4d-115.1013304'
+  phone: '03 9032 7400'

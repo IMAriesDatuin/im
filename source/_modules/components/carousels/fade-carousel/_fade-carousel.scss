@@ -1,0 +1,338 @@
+/* -------------------------------------------------- */
+/* PARALLAX CAROUSEL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$fade-carousel-options: (
+	background-color: transparent
+);
+
+
+// MAIN
+.fade-carousel {
+
+	@include fade(
+		$type: 'tb',
+		$color: $charcoal,
+		$alpha: 1,
+		$scale: 100%,
+		$start: 0%,
+		$stop: 90%,
+		$order: 1,
+		$prefix: '',
+		$suffix: '::before',
+		$is-fixed: false,
+		$clickable: false
+	);
+	//overflow: hidden;
+	width: 100%;
+	background: map-get($fade-carousel-options, background-color);
+
+	.flickity-viewport {
+
+		//cursor: grab;
+		//width: 100%;
+		transition: height 400ms;
+		will-change: height;
+
+		.flickity-slider {
+			@extend .flex;
+		}
+
+	}
+
+	.carousel-cell {
+
+		overflow: hidden;
+		margin: 0 0 0 0;
+		width: 100%;
+		border: 2px solid $charcoal;
+
+		.carousel-container {
+			display: block;
+			position: relative;
+		}
+
+	}
+
+	.flickity-prev-next-button {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 200ms,
+			$delay: 0,
+			$ease: ease-in-out,
+			$optimize: true
+		);
+		opacity: 0;
+		overflow: hidden;
+		width: 10%;
+		height: 100%;
+		border-radius: 0;
+		background: none;
+		mix-blend-mode: difference;
+
+		svg {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.previous {
+			
+			/*
+			@include fade(
+				$type: 'left',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 0,
+				$prefix: '::before',
+				$suffix: '',
+				$is-fixed: false,
+				$clickable: true
+			);
+			*/
+			left: 0;
+
+		}
+
+		&.next {
+
+			/*
+			@include fade(
+				$type: 'right',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 0,
+				$prefix: '::before',
+				$suffix: '',
+				$is-fixed: false,
+				$clickable: true
+			);
+			*/
+			right: 0;
+
+		}
+
+	}
+
+}
+
+
+// NAV
+.fade-nav-carousel-alt {
+
+	z-index: 1;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	//width: auto;
+	//height: 100%;
+
+	li {
+
+		margin: {
+			top: 4rem;
+			bottom: 4rem;
+		};
+		font: $subheadline;
+		font-size: 6em;
+
+		a {
+
+			@include transition(
+				$property: (color),
+				$duration: 400ms,
+				$delay: 0,
+				$ease: ease-out,
+				$optimize: true
+			);
+			color: $white;
+			//-webkit-text-stroke: 2px $white;
+			//-webkit-text-fill-color: transparent;
+			/*
+			text-shadow: -1px -1px 0 $black,
+						 1px -1px 0 $black,
+						 -1px 1px 0 $black,
+						 1px 1px 0 $black;
+						 */
+
+			//&:hover,
+			&.is-active {
+				color: $dark-gray;
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+.fade-nav-carousel {
+
+	z-index: 1;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	.flickity-viewport {
+		overflow: visible;
+	}
+
+	.carousel-cell {
+
+		margin-right: 16rem;
+		//width: 100%;
+
+		.card {
+
+			@extend .box-shadow-sm;
+			@include transition(
+				$property: (filter, transform),
+				$duration: 400ms,
+				$delay: 0,
+				$ease: ease-in-out,
+				$optimize: true
+			);
+			margin: {
+				left: auto;
+				right: auto;
+			};
+			//margin-right: 4rem;
+			transform: translate3d(0,0,0);
+			transform-origin: bottom center;
+
+			svg {
+
+			}
+
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			width: 100%;
+			margin-right: 0;
+		}
+
+		&.is-nav-selected {
+
+			.card {
+
+				@extend .box-shadow-xl;
+				transform: translate3d(0,-50px,0);
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					transform: translate3d(0,0,0);
+				}
+
+			}
+
+		}
+
+	}
+
+	.flickity-prev-next-button {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 400ms,
+			$delay: 0,
+			$ease: ease-out,
+			$optimize: true
+		);
+		display: none;
+		pointer-events: none;
+		opacity: 1;
+		overflow: hidden;
+		width: 10%;
+		height: 100%;
+		border-radius: 0;
+		background: transparent;
+
+		svg {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.previous {
+
+			@include fade(
+				$type: 'left',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 75%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			left: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+		&.next {
+
+			@include fade(
+				$type: 'right',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 75%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			right: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.fade-carousel {
+
+	$self: &;
+
+	&.is-first-cell {
+		
+	}
+
+	&.is-last-cell {
+		
+	}
+
+}

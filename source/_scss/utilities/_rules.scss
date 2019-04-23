@@ -1,0 +1,1180 @@
+/* -------------------------------------------------- */
+/* OVERFLOW
+/* -------------------------------------------------- */
+
+.overflow#{$modifier} {
+
+	&#{'auto'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: auto;
+		}
+
+	}
+
+	&#{'scroll'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: scroll;
+		}
+
+	}
+
+	&#{'hidden'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: hidden
+		}
+
+	}
+
+	&#{'visible'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: visible;
+		}
+
+	}
+
+	&#{'x'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: {
+				x: scroll;
+				y: hidden;
+			}
+		}
+
+	}
+
+	&#{'y'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: {
+				x: hidden;
+				y: scroll;
+			}
+		}
+
+	}
+
+	&#{'contain'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overscroll-behavior: contain;
+		}
+
+	}
+
+	&#{'none'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overscroll-behavior: none;
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* OPACITY
+/* -------------------------------------------------- */
+
+.opacity#{$modifier} {
+
+	@each $name, $number in $numbers {
+
+		&#{$name} {
+
+			@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+				opacity: $number;
+			}
+
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* DISPLAY / VISIBILITY
+/* -------------------------------------------------- */
+
+.display#{$modifier} {
+
+	&#{'block'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			display: block;
+		}
+
+	}
+
+	&#{'inline'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			display: inline;
+		}
+
+	}
+
+	&#{'inline-block'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			display: inline-block;
+		}
+
+	}
+
+}
+
+.hide {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		display: none !important;
+	}
+
+}
+
+.show {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		display: block;
+	}
+
+}
+
+.hidden {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		visibility: hidden;
+	}
+
+}
+
+.visible {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		visibility: visible;
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* POSITION
+/* -------------------------------------------------- */
+
+.position#{$modifier} {
+
+	&#{'absolute'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: absolute;
+		}
+
+	}
+
+	&#{'fixed'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: fixed;
+		}
+
+	}
+
+	&#{'relative'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: relative;
+		}
+
+	}
+
+	&#{'static'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: static;
+		}
+
+	}
+
+	&#{'sticky'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: sticky;
+		}
+
+	}
+
+	// Will reset the element position to be part of the normal page flow.
+	&#{'reset'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: relative;
+			top: auto;
+			right: auto;
+			bottom: auto;
+			left: auto;
+			//width: 100%;
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* ALIGNMENT
+/* -------------------------------------------------- */
+
+.top {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		top: 0;
+	}
+
+}
+
+.right {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		right: 0;
+	}
+
+	&#{$modifier}#{'auto'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			margin: { 
+				left: auto;
+				right: 0;
+			}
+		}
+
+	}
+
+}
+
+.bottom {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		bottom: 0;
+	}
+
+}
+
+.left {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		left: 0;
+	}
+
+	&#{$modifier}#{'auto'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			margin: { 
+				left: 0;
+				right: auto;
+			}
+		}
+
+	}
+
+}
+
+.center#{$modifier} {
+
+	&#{'auto'} { // |
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			margin: {
+				left: auto;
+				right: auto;
+			}
+		}
+
+	}
+
+	&#{'v'} { // |
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+	}
+
+	&#{'h'} { // -
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+	}
+
+	&#{'vh'} { // +
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+	}
+
+}
+
+.flex {
+	display: flex;
+	//flex-wrap: nowrap; // nowrap, wrap, wrap-reverse
+	//flex-direction: row; // row, row-reverse, column, column-reverse
+	//flex: 1 0 auto;
+	//align-content: center; // flex-start; flex-end, center, space-around, space-between, stretch
+	//justify-content: flex-start; // flex-start, flex-end, center, space-around, space-between
+}
+
+.flex#{$modifier} {
+
+	&#{'inline'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			display: inline-flex;
+		}
+
+	}
+
+	&#{'top'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: flex-start;
+		}
+
+	}
+
+	&#{'right'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-content: flex-end;
+		}
+
+	}
+
+	&#{'bottom'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: flex-end;
+		}
+
+	}
+
+	&#{'left'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-content: flex-start;
+		}
+
+	}
+
+	&#{'v'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: center;
+		}
+
+	}
+
+	&#{'h'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-content: center;
+		}
+
+	}
+
+	&#{'vh'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: center;
+			justify-content: center;
+		}
+
+	}
+
+	&#{'nowrap'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-wrap: nowrap;
+		}
+
+	}
+
+	&#{'wrap'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-wrap: wrap;
+		}
+
+	}
+
+	&#{'wrap-reverse'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-wrap: wrap-reverse;
+		}
+
+	}
+
+	&#{'column'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-direction: column;
+		}
+
+	}
+
+	&#{'row'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-direction: row;
+		}
+
+	}
+
+	&#{'column-reverse'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-direction: column-reverse;
+		}
+
+	}
+
+	&#{'row-reverse'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-direction: row-reverse;
+		}
+
+	}
+
+	&#{'around'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: space-around;
+			justify-content: space-around;
+		}
+
+	}
+
+	&#{'evenly'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-content: space-evenly;
+		}
+
+	}
+
+	&#{'between'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: space-between;
+			justify-content: space-between;
+		}
+
+	}
+
+	&#{'stretch'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-content: stretch;
+		}
+
+	}
+
+	&#{'auto'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: auto;
+		}
+
+	}
+
+	&#{'expand'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 100%;
+			flex-grow: 1;
+		}
+
+	}
+
+	&#{'shrink'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 10%;
+			flex-shrink: 1;
+		}
+
+	}
+
+	&#{'25'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 25%;
+		}
+
+	}
+
+	&#{'50'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 50%;
+		}
+
+	}
+
+	&#{'75'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 50%;
+		}
+
+	}
+
+	&#{'100'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			flex-basis: 100%;
+		}
+
+	}
+
+	&#{'column-center'} {
+		display: flex;
+		flex-direction: column;
+		align-content: stretch;
+		justify-content: center;
+	}
+
+	&#{'row-center'} {
+		display: flex;
+		flex-direction: column;
+		align-content: stretch;
+		justify-content: center;
+	}
+
+}
+
+.flex-items#{$modifier} {
+
+	&#{'top'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-items: flex-start;
+		}
+
+	}
+
+	&#{'right'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-items: flex-end;
+		}
+
+	}
+
+	&#{'bottom'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-items: flex-end;
+		}
+
+	}
+
+	&#{'left'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-items: flex-start;
+		}
+
+	}
+
+	&#{'v'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-items: center;
+		}
+
+	}
+
+	&#{'h'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-items: center;
+		}
+
+	}
+
+	&#{'vh'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-items: center;
+			justify-items: center;
+		}
+
+	}
+
+	&#{'stretch'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-items: stretch;
+			justify-items: stretch;
+		}
+
+	}
+
+}
+
+.flex-self#{$modifier} {
+
+	&#{'top'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-self: flex-start;
+		}
+
+	}
+
+	&#{'right'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-self: flex-end;
+		}
+
+	}
+
+	&#{'bottom'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-self: flex-end;
+		}
+
+	}
+
+	&#{'left'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-self: flex-start;
+		}
+
+	}
+
+	&#{'v'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-self: center;
+		}
+
+	}
+
+	&#{'h'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-self: center;
+		}
+
+	}
+
+	&#{'vh'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-self: center;
+			justify-self: center;
+		}
+
+	}
+
+	&#{'around'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-self: space-around;
+		}
+
+	}
+
+	&#{'between'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			justify-self: space-between;
+		}
+
+	}
+
+	&#{'stretch'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			align-self: stretch;
+			justify-self: stretch;
+		}
+
+	}
+
+}
+
+.float#{$modifier} {
+
+	&#{'left'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			float: left;
+		}
+
+	}
+
+	&#{'right'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			float: right;
+		}
+
+	}
+
+}
+
+.v-align#{$modifier} {
+
+	&#{'baseline'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: baseline;
+		}
+
+	}
+
+	&#{'top'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: top;
+		}
+
+	}
+
+	&#{'middle'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: middle;
+		}
+
+	}
+
+	&#{'bottom'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: bottom;
+		}
+
+	}
+
+	&#{'text-top'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: text-top;
+		}
+
+	}
+
+	&#{'text-bottom'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: text-bottom;
+		}
+
+	}
+
+	&#{'sub'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: sub;
+		}
+
+	}
+
+	&#{'super'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			vertical-align: super;
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* RADIUS / ROUND
+/* -------------------------------------------------- */
+
+.round#{$modifier} {
+
+	@each $name, $amount in $amounts {
+
+		&#{$name} {
+
+			@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+
+				border: {
+					radius: pxtoem($amount);
+				}
+
+				&#{'-hover'}:hover,
+				&#{'-focus'}:focus {
+					border: {
+						radius: pxtoem($amount);
+					}
+				}
+
+			}
+
+		}
+
+		&#{'full'} {
+
+			@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+
+				border: {
+					radius: 50%;
+				}
+
+				&#{'-hover'}:hover,
+				&#{'-focus'}:focus {
+					border: {
+						radius: 50%;
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+	@each $name, $direction in $directions {
+
+		&#{$name} {
+
+			@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+
+				@if $direction == 'top' {
+
+					border: {
+						/*top-left-radius: 0;*/
+						/*top-right-radius: 0;*/
+						bottom-left-radius: 0;
+						bottom-right-radius: 0;
+					}
+
+				}
+
+				@else if $direction == 'right' {
+
+					border: {
+						top-left-radius: 0;
+						/*top-right-radius: 0;*/
+						bottom-left-radius: 0;
+						/*bottom-right-radius: 0;*/
+					}
+
+				}
+
+				@else if $direction == 'bottom' {
+
+					border: {
+						top-left-radius: 0;
+						top-right-radius: 0;
+						/*bottom-left-radius: 0;*/
+						/*bottom-right-radius: 0;*/
+					}
+
+				}
+
+				@else if $direction == 'left' {
+
+					border: {
+						/*top-left-radius: 0;*/
+						top-right-radius: 0;
+						/*bottom-left-radius: 0;*/
+						bottom-right-radius: 0;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* STACK ORDER (Z-INDEX)
+/* -------------------------------------------------- */
+
+.z#{$modifier} {
+
+	@each $name, $number in $numbers {
+
+		&#{$name} {
+
+			@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+				z-index: $name;
+			}
+
+		}
+
+	}
+
+}
+
+.bring-to-front {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		z-index: 9999;
+	}
+
+}
+
+.send-to-back {
+
+	@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+		z-index: -1;
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* CURSOR
+/* -------------------------------------------------- */
+
+.cursor#{$modifier} {
+
+	&#{'alias'} {
+		cursor: alias;
+	}
+
+	&#{'all-scroll'} {
+		cursor: all-scroll;
+	}
+
+	&#{'auto'} {
+		cursor: auto;
+	}
+
+	&#{'cell'} {
+		cursor: cell;
+	}
+
+	&#{'context-menu'} {
+		cursor: context-menu;
+	}
+
+	&#{'col-resize'} {
+		cursor: col-resize;
+	}
+
+	&#{'copy'} {
+		cursor: copy;
+	}
+
+	&#{'crosshair'} {
+		cursor: crosshair;
+	}
+
+	&#{'default'} {
+		cursor: default;
+	}
+
+	&#{'e-resize'} {
+		cursor: e-resize;
+	}
+
+	&#{'ew-resize'} {
+		cursor: ew-resize;
+	}
+
+	&#{'grab'} {
+		cursor: grab;
+	}
+
+	&#{'grabbing'} {
+		cursor: grabbing;
+	}
+
+	&#{'help'} {
+		cursor: help;
+	}
+
+	&#{'move'} {
+		cursor: move;
+	}
+
+	&#{'n-resize'} {
+		cursor: n-resize;
+	}
+
+	&#{'ne-resize'} {
+		cursor: ne-resize;
+	}
+
+	&#{'nesw-resize'} {
+		cursor: nesw-resize;
+	}
+
+	&#{'ns-resize'} {
+		cursor: ns-resize;
+	}
+
+	&#{'nw-resize'} {
+		cursor: nw-resize;
+	}
+
+	&#{'nwse-resize'} {
+		cursor: nwse-resize;
+	}
+
+	&#{'no-drop'} {
+		cursor: no-drop;
+	}
+
+	&#{'none'} {
+		cursor: none;
+	}
+
+	&#{'not-allowed'} {
+		cursor: not-allowed;
+	}
+
+	&#{'pointer'} {
+		cursor: pointer;
+	}
+
+	&#{'progress'} {
+		cursor: progress;
+	}
+
+	&#{'row-resize'} {
+		cursor: row-resize;
+	}
+
+	&#{'s-resize'} {
+		cursor: s-resize;
+	}
+
+	&#{'se-resize'} {
+		cursor: se-resize;
+	}
+
+	&#{'sw-resize'} {
+		cursor: sw-resize;
+	}
+
+	&#{'text'} {
+		cursor: text;
+	}
+
+	&#{'w-resize'} {
+		cursor: w-resize;
+	}
+
+	&#{'wait'} {
+		cursor: wait;
+	}
+
+	&#{'zoom-in'} {
+		cursor: zoom-in;
+	}
+
+	&#{'zoom-out'} {
+		cursor: zoom-out;
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* DISABLED
+/* -------------------------------------------------- */
+
+.no#{$modifier} {
+
+	&#{'pointer'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			cursor: pointer;
+			pointer-events: none;
+		}
+
+	}
+
+	&#{'scroll'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			overflow: {
+				x: hidden;
+				y: hidden;
+			}
+		}
+
+	}
+
+	&#{'scrollbar'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			-ms-overflow-style: none;
+		}
+
+	}
+
+	&#{'scrollbar'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '::-webkit-scrollbar') {
+			display: none;
+		}
+
+	}
+
+	&#{'selection'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			user-select: none;
+		}
+
+	}
+
+	&#{'touch-scroll'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			-webkit-overflow-scrolling: auto;
+		}
+
+	}
+
+	&#{'touch-callout'} {
+
+		@include breakpoint($type: 'all', $prefix: '-', $suffix: '') {
+			-webkit-touch-callout: none;
+			-moz-touch-callout: none;
+			-ms-user-touch-callout: none;
+			touch-callout: none;
+		}
+
+	}
+
+}

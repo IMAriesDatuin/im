@@ -1,0 +1,35 @@
+/* -------------------------------------------------- */
+/* TEXT BLOCK
+/* -------------------------------------------------- */
+
+// OPTIONS
+$text-block-options: (
+
+);
+
+
+// MAIN
+.text-block {
+
+	//@extend .alpha;
+	//@extend .flex;
+	//@extend .flex-column;
+	//@extend .flex-left;
+	//@extend .flex-stretch;
+	padding: {
+		top: 1rem;
+		right: 1rem;
+		bottom: 1rem;
+		left: 1rem;
+	}
+
+	@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {
+		padding: {
+			top: map-get(map-get($cell, padding), top-mobile);
+			right: map-get(map-get($cell, padding), right-mobile);
+			bottom: map-get(map-get($cell, padding), bottom-mobile);
+			left: map-get(map-get($cell, padding), left-mobile);
+		}
+	}
+
+}

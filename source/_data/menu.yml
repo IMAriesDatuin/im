@@ -1,0 +1,43 @@
+
+# CONTENT
+main:
+ -
+  id: 'home'
+  link: '/im/build/'
+  title: 'Home'
+  description: 'Welcome'
+
+
+ -
+  id: 'our-work'
+  link: '/im/build/our-work'
+  title: 'Our Work'
+  description: 'What we do.'
+
+
+ -
+  id: 'services'
+  link: '/im/build/services'
+  title: 'Services'
+  description: 'What we offer.'
+
+
+ -
+  id: 'about-us'
+  link: '/im/build/about-us'
+  title: 'About Us'
+  description: 'We are incredible.'
+
+
+ -
+  id: 'careers'
+  link: '/im/build/careers'
+  title: 'Careers'
+  description: 'Join us.'
+
+
+ -
+  id: 'contact'
+  link: '/im/build/contact'
+  title: 'Contact'
+  description: 'Ready to talk?'

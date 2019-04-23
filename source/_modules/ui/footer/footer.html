@@ -1,0 +1,114 @@
+
+<!-- CONTENT: FOOTER -->
+<footer id="footer" class="footer" data-page={{ page }}>
+
+
+	<!-- BLOCK -->
+	{{> section-progress}}
+	<!-- // BLOCK -->
+
+
+	<!-- THE CODE -->
+	<div class="the-code hide-mobile is-desktop">
+		<span class="fas fa-arrow-up"></span>
+		<span class="fas fa-arrow-up"></span>
+		<span class="fas fa-arrow-down"></span>
+		<span class="fas fa-arrow-down"></span>
+		<span class="fas fa-arrow-left"></span>
+		<span class="fas fa-arrow-right"></span>
+		<span class="fas fa-arrow-left"></span>
+		<span class="fas fa-arrow-right"></span>
+		B<br>
+		A<br>
+		B<br>
+		A
+	</div>
+	<!-- // THE CODE -->
+
+
+	<!-- BLOCK -->
+	<div class="footer-container skew-scroll">
+
+
+		<!-- GRID -->
+		<div class="company-info grid-x align-top align-left medium-up-2 large-up-4">
+
+
+			<!-- CELL -->
+			{{#each contact-info.content}}
+			<div class="cell">
+
+
+				<div class="title">{{ title }}</div>
+				<a href="{{ link }}" class="location" aria-label="{{ description }}">{{ description }}</a>
+				<a href="tel:{{ phone }}" class="phone" aria-label="Contact us at {{ phone }}">{{ phone }}</a>
+
+
+			</div>
+			{{/each}}
+			<!-- // CELL -->
+
+
+		</div>
+		<!-- // GRID -->
+
+
+		<!-- GRID -->
+		<div class="menu grid-x align-middle align-center medium-up-1 large-up-2">
+
+
+			<!-- CELL -->
+			<div class="cell small-order-2 medium-order-1">
+
+				{{> social-icons}}
+				<span class="inner"></span>
+				<a href="--email" class="phone" aria-label="Contact us at --email" data-no-swup>--email</a>
+
+			</div>
+			<!-- // CELL -->
+
+
+			<!-- CELL -->
+			<nav class="cell small-order-1 medium-order-2">
+
+				<!-- MENU -->
+				<ul>
+
+					{{#each menu.main}}
+					<li>
+
+						<a href="{{ link }}" class="{{ id }}">
+							{{ title }}
+						</a>
+
+					</li>
+					{{/each}}
+
+				</ul>
+				<!-- // MENU -->
+
+
+			</nav>
+			<!-- // CELL -->
+
+
+		</div>
+		<!-- // GRID -->
+
+
+		<!-- GRID -->
+		<p class="legal-stuff">&copy;--year --name <span class="legal-link">/</span> <a href="/im/build/legal#terms-of-service" class="legal-link">Terms of Service</a> <span class="legal-link">/</span> <a href="/im/build/legal#privacy-policy" class="legal-link">Privacy Policy</a></p>
+		<!-- GRID -->
+
+
+	</div>
+	<!-- // BLOCK -->
+
+
+	<!-- LOGO BACKGROUND -->
+	<div class="logo-background skew-scroll">incredible.</div>
+	<!-- // LOGO BACKGROUND -->
+
+
+</footer>
+<!-- // CONTENT: FOOTER -->

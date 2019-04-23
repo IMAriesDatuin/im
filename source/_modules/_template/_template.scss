@@ -1,0 +1,76 @@
+/* -------------------------------------------------- */
+/* COMPONENT
+/* -------------------------------------------------- */
+
+// OPTIONS
+$component-options: (
+
+);
+
+
+// MAIN
+.component {
+
+}
+
+
+// MODIFIERS
+.component {
+
+	$self: &;
+
+	#{$self}-element {
+		
+	}
+
+	&.is-ready {
+
+	}
+
+	&.is-top {
+
+	}
+
+	&.is-not-top {
+
+	}
+
+	&.is-bottom {
+
+	}
+
+	&.is-not-bottom {
+
+	}
+
+	&.is-scrolling-up {
+
+	}
+
+	&.is-scrolling-down {
+
+	}
+
+}
+
+
+// ANIMATIONS
+@keyframes animate-component {
+
+	from {
+
+	}
+
+	to {
+
+	}
+
+}
+
+
+// LOGIC
+@if null == true {
+
+} @else {
+
+}

@@ -1,0 +1,46 @@
+/* -------------------------------------------------- */
+/* CERTIFICATIONS
+/* -------------------------------------------------- */
+
+$certification-options: (
+
+);
+
+
+// MAIN
+.certifications {
+
+	width: 100%;
+
+	li {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 200ms,
+			$delay: 0,
+			$ease: cubic-bezier(0.51,0.92,0.24,1.15),
+			$optimize: true
+		);
+		opacity: 0.2;
+		//transform: scale3d(0.75,0.75,1);
+		transform-origin: center center;
+
+		img {
+			display: block;
+			margin: {
+				left: auto;
+				right: auto;
+			}
+			width: 125px;
+			height: 125px;
+		}
+
+		&:hover {
+			opacity: 1;
+			//transform: scale3d(1,1,1);
+		}
+
+	}
+	
+
+}

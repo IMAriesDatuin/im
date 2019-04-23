@@ -1,0 +1,111 @@
+/* -------------------------------------------------- */
+/* KONAMI CODE
+/* -------------------------------------------------- */
+
+// OPTIONS
+$konami-code-options: (
+
+);
+
+
+// MAIN
+#konami-code {
+
+	//@extend .bring-to-front;
+	pointer-events: none;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 300px;
+	background: transparent;
+
+	#contra {
+		overflow: hidden;
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 200px;
+		height: 300px;
+		//border: 1px solid $black;
+		//background: $gray;
+		//background: url('../assets/konami-code/contra.png');
+		//background-position-y: 0px;
+
+		img {
+			max-width: initial;
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.konami-code {
+
+	$self: &;
+
+	&.is-ready {
+
+	}
+
+
+	&.is-top {
+
+	}
+
+
+	&.is-not-top {
+
+	}
+
+
+	&.is-bottom {
+
+	}
+
+
+	&.is-not-bottom {
+
+	}
+
+
+	&.is-scrolling-up {
+
+	}
+
+
+	&.is-scrolling-down {
+
+	}
+
+}
+
+
+// ANIMATIONS
+@keyframes animate-konami-code {
+
+	from {
+
+	}
+
+	to {
+
+	}
+
+}
+
+
+// LOGIC
+@if null == true {
+
+
+
+} @else {
+
+
+
+}

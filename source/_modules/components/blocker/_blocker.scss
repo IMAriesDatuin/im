@@ -1,0 +1,63 @@
+/* -------------------------------------------------- */
+/* BLOCKER
+/* -------------------------------------------------- */
+
+$blocker-options: (
+	opacity: 1, // Set the transparency.
+	background-color: $white, // Set the blocker's background color.
+	duration: 400ms, // Set how quickly the transition transparency occurs.
+	delay: 800ms // Set the transition delay.
+);
+
+
+//MAIN
+.blocker {
+
+	@extend .fullscreen;
+	@include transition(
+		$property: opacity,
+		$duration: map-get($blocker-options, duration),
+		$delay: 0,
+		$ease: ease-out,
+		$optimize: true
+	);
+	cursor: default;
+	pointer-events: none;
+	opacity: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba( map-get($blocker-options, background-color) , map-get($blocker-options, opacity) );
+
+}
+
+
+// MODIFIERS
+html {
+
+	&.is-locking {
+
+		body {
+
+			.blocker {
+
+				@include transition(
+					$property: opacity,
+					$duration: map-get($blocker-options, duration),
+					$delay: map-get($blocker-options, delay),
+					$ease: ease-out,
+					$optimize: true
+				);
+				pointer-events: auto;
+				opacity: 1;
+
+			}
+
+		}
+
+	}
+
+}

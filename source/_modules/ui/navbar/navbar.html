@@ -1,0 +1,57 @@
+
+<!-- CONTENT: NAVBAR -->
+<header class="navbar headroom">
+
+
+	{{> scroll-progress}}
+
+
+	<!-- GRID -->
+	<div class="menubar magnetic-container">
+
+
+		<!-- CELL -->
+		<a href="/im/build/" class="menubar-logo cursor-hover" aria-label="--name" >
+
+			{{> logo-icon}}
+
+		</a>
+		<!-- // CELL -->
+
+
+		<!-- CELL -->
+		<nav class="menubar-menu">
+
+			<!-- MENU -->
+			<ul>
+
+				{{#each menu.main}}
+				<li>
+
+					<a href="#{{ link }}" class="{{ id }}">{{ title }}</a>
+
+				</li>
+				{{/each}}
+
+			</ul>
+			<!-- // MENU -->
+
+		</nav>
+		<!-- // CELL -->
+
+
+		<!-- CELL -->
+		<div class="menubar-toggle menu-toggle headroom magnetic">
+
+			{{> menu-toggle}}
+
+		</div>
+		<!-- // CELL -->
+
+
+	</div>
+	<!-- GRID -->
+
+
+</header>
+<!-- // CONTENT: NAVBAR -->

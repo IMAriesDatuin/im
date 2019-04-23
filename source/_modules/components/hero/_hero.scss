@@ -1,0 +1,123 @@
+/* -------------------------------------------------- */
+/* HERO
+/* -------------------------------------------------- */
+
+// OPTIONS
+$hero-options: (
+
+);
+
+
+// MAIN
+.hero {
+
+	/*
+	@include transition(
+		$property: (opacity),
+		$duration: 200ms,
+		$delay: 0,
+		$ease: ease-in-out,
+		$optimize: true
+	);
+	*/
+
+	@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+
+	}
+
+	#hero-copy {
+
+		padding: {
+			left: 2rem;
+			right: 2rem;
+		}
+		text-align: center;
+
+		.title {
+
+			overflow: hidden;
+			font: $headline;
+			color: $primary;
+
+			h1 {
+
+				color: transparent;
+				font-size: 18em;
+				line-height: 1em;
+				background-size: cover;
+				background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+				-moz-background-clip: text;
+				-webkit-background-clip: text;
+				//text-transform: uppercase;
+
+				@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: '') {
+					font-size: 12em;
+				}
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					font-size: 5em;
+				}
+
+			}
+
+		}
+
+		.tagline {
+			overflow: hidden;
+			display: block;
+			//position: relative;
+			margin: {
+				left: auto;
+				right: auto;
+			}
+			width: 100%;
+			max-width: 800px;
+			color: $black;
+			font: $copy;
+			font-size: 1.25em;
+			text-align: center !important;
+		}	
+
+	}
+
+}
+
+
+// MODIFIERS
+.hero {
+
+	$self: &;
+
+	#{$self}-element {
+		
+	}
+
+	&.is-ready {
+
+	}
+
+	&.is-top {
+
+	}
+
+	&.is-not-top {
+
+	}
+
+	&.is-bottom {
+
+	}
+
+	&.is-not-bottom {
+
+	}
+
+	&.is-scrolling-up {
+
+	}
+
+	&.is-scrolling-down {
+
+	}
+
+}

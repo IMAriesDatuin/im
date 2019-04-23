@@ -1,0 +1,46 @@
+/* -------------------------------------------------- */
+/* CARD
+/* -------------------------------------------------- */
+
+// OPTIONS
+$card-options: (
+
+);
+
+
+// MAIN
+.card {
+
+	//@extend .frost-xl;
+	width: 300px;
+	height: auto;
+	padding: {
+		top: 2rem;
+		right: 2rem;
+		bottom: 4rem;
+		left: 2rem;
+	}
+	border-radius: 10px;
+	background: $black;
+
+	.headline {
+		margin-bottom: 0;
+		color: $primary;
+		font: $subheadline;
+		font-size: 1.5em;
+	}
+
+	p {
+
+	}
+
+	@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {
+		padding: {
+			top: map-get(map-get($cell, padding), top-mobile);
+			right: map-get(map-get($cell, padding), right-mobile);
+			bottom: map-get(map-get($cell, padding), bottom-mobile);
+			left: map-get(map-get($cell, padding), left-mobile);
+		}
+	}
+
+}

@@ -1,0 +1,578 @@
+/* -------------------------------------------------- */
+/* NAVBAR
+/* -------------------------------------------------- */
+
+// OPTIONS
+$navbar-options: (
+	logo: (
+		color: $primary, // Set the initial logo's color.
+		alt-color: $white,
+		active: $charcoal, // Set the actvie state color when the menu is open.
+		size: 50px, // Set an initial (responsive) logo size. This is not a fixed width and will scale according to viewport size.
+		allow: false, // Switch beteen 2 different logos depending on viewport size.
+		desktop-id: '.logo-desktop', // Define a logo when the viewport is greater than the breakpoint.
+		mobile-id: '.logo-mobile', // Define a logo when the viewport is less than the breakpoint.
+		duration: 200ms // Set how quickly the transition between desktop-id and mobile-id happens.
+	),
+	menu-alignment: right, // Align menu items: left, center, right. *Note: This option does not apply if reverse is set to true.
+	menu-spacing: 0, // Set the spacing between links.
+	persistent-navbar: true, // Allows the navbar to stick to the top.
+	persistent-toggle: true, // Hide links and only show the toggle menu.
+	reverse: false, // If set to false navbar will display logo on left and links/icon toggle menu on the right. If set to true the order will be reversed.
+	show-on-page-end: false, // Show the navbar when the scroll position is at the bottom.
+	show-on-scrolling-up: false, // Show the navbar while scrolling up. *Note: persistent-navbar will be disabled and scrolling down will hide the navbar.
+	break: 900px, // Defines when the toggle menu is activated.
+	padding: (
+		top: 0,
+		right: 5rem,
+		bottom: 0,
+		left: 5rem
+	),
+	width: map-get($section, width),
+	height: 75px,
+	background-color: $charcoal,
+	blend-mode: difference, // Set the blend-mode when interacting with elements: color, color-burn, color-dodge, exclusion, darken, hue, lighten, luminosity, normal, hard-light, multiply, overlay, saturation, screen, soft-light.
+);
+
+
+// NAVBAR
+.navbar {
+
+	@include transition(
+		$property: (height, background, transform),
+		$duration: 200ms,
+		$delay: 0,
+		$ease: ease-in-out,
+		$optimize: true
+	);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: map-get($navbar-options, height);
+	background: transparent;
+
+	.menubar {
+
+		@extend .flex;
+		@extend .flex-between;
+		margin: {
+			right: auto;
+			left: auto;
+		}
+		width: 100%;
+		height: 100%;
+		max-width: map-get($navbar-options, width);
+
+		&-logo,
+		//&-menu,
+		&-toggle {
+
+			@extend .flex;
+			@extend .flex-self-vh;
+			padding: {
+				top: map-get(map-get($navbar-options, padding), top);
+				right: map-get(map-get($navbar-options, padding), right);
+				bottom: map-get(map-get($navbar-options, padding), bottom);
+				left: map-get(map-get($navbar-options, padding), left);
+			}
+			height: 100%;
+			//mix-blend-mode: map-get($navbar-options, blend-mode);
+
+			@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+				padding: {
+					top: map-get(map-get($navbar-options, padding), top) / 2;
+					right: map-get(map-get($navbar-options, padding), right) / 2;
+					bottom: map-get(map-get($navbar-options, padding), bottom) / 2;
+					left: map-get(map-get($navbar-options, padding), left) / 2;
+				}
+			}
+
+		}
+
+		&-logo {
+
+			@extend .flex-25;
+			@include transition(
+				$property: (opacity, transform),
+				$duration: 200ms,
+				$delay: 0,
+				$ease: ease-out,
+				$optimize: true
+			);
+			opacity: 1;
+			overflow: hidden;
+			//flex-basis: map-get(map-get($navbar-options, logo), size);
+			flex-basis: auto;
+			transform: translate3d(0,0,0);
+			//flex-shrink: strip-unit( map-get(map-get($navbar-options, logo), size) / 10 );
+
+			.logo {
+				@extend .flex-self-v;
+				@include transition(
+					$property: (color, fill),
+					$duration: map-get(map-get($navbar-options, logo), duration),
+					$delay: 0,
+					$ease: ease-out,
+					$optimize: true
+				);
+				width: map-get(map-get($navbar-options, logo), size);
+				color: map-get(map-get($navbar-options, logo), color);
+				font-size: 2em;
+				fill: map-get(map-get($navbar-options, logo), color);
+			}
+
+			&.is-open {
+
+				.logo {
+					color: map-get(map-get($navbar-options, logo), active);
+					fill: map-get(map-get($navbar-options, logo), active);
+				}
+
+			}
+
+		}
+
+		&-menu {
+
+			@extend .flex-expand;
+			height: 100%;
+
+			ul {
+
+				@extend .list-h;
+				height: 100%;
+				text-align: map-get($navbar-options, menu-alignment);
+
+				li {
+
+					position: relative;
+					margin: {
+						right: map-get($navbar-options, menu-spacing);
+						left: map-get($navbar-options, menu-spacing);
+					}
+					height: 100%;
+
+					a {
+
+						@extend .flex-column-center;
+						@include transition(
+							$property: (color),
+							$duration: 200ms,
+							$delay: 0,
+							$ease: ease-in-out,
+							$optimize: true
+						);
+						position: relative;
+						padding: 1rem;
+						height: 100%;
+						color: $white;
+						font: $headline;
+						font-size: 0.75em;
+						letter-spacing: 0.125em;
+						text-transform: uppercase;
+
+						&::after {
+							@include animate(
+								$name: animate-menubar-menu-link-is-out,
+								$direction: normal,
+								$play: true,
+								$duration: 400ms,
+								$delay: 0,
+								$repeat: 1,
+								$ease: cubic-bezier(1, 0, 0, 1),
+								$reset: true
+							);
+							@include transition(
+								$property: (color, transform, background-color),
+								$duration: 200ms,
+								$delay: 0,
+								$ease: ease-in-out,
+								$optimize: true
+							);
+							content: '';
+							z-index: -1;
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background: $white;
+							transform: scale3d(0,1,1);
+							transform-origin: left center;
+						}
+
+					}
+
+					&:last-child {
+
+						a {
+							padding-right: map-get(map-get($navbar-options, padding), right);
+						}
+
+					}
+
+					&:hover,
+					&.is-active {
+
+						a  {
+
+							color: $charcoal;
+
+							&::after {
+								animation-name: animate-menubar-menu-link-is-over;
+							}
+
+						}
+
+					}
+
+					&.is-active {
+						cursor: not-allowed;
+						pointer-events: none;
+					}
+
+				}
+
+			}
+
+		}
+
+		&-toggle {
+
+			@extend .flex-right;
+			display: none;
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS / HELPERS
+.navbar {
+
+	$self: &; // Create a variable for the parent element for reference.
+
+	&.is-ready {
+
+		@if map-get($navbar-options, show-on-scrolling-up) == true {
+			position: fixed;
+		}
+
+	}
+
+	&.is-top {
+
+		@if map-get($navbar-options, persistent-toggle) == false {
+			background: rgba( map-get($navbar-options, background-color), 1 );
+		}
+
+	}
+
+	&.is-not-top {
+
+		@if map-get($navbar-options, show-on-scrolling-up) == true {
+			transform: translate3d(0, - map-get($navbar-options, height), 0);
+		}
+
+		@if map-get($navbar-options, persistent-toggle) == false {
+			background: rgba( map-get($navbar-options, background-color), 0 );
+		}
+
+	}
+
+	&.is-not-top {
+
+		.menubar-logo:not(.is-open)  {
+
+			//opacity: 0;
+			//transform: translate3d(-25%,0,0);
+
+			.logo {
+				color: map-get(map-get($navbar-options, logo), alt-color);
+				fill: map-get(map-get($navbar-options, logo), alt-color);
+			}
+
+		}
+
+	}
+
+	&.is-bottom {
+
+		@if map-get($navbar-options, show-on-page-end) == true {
+
+			transform: translate3d(0,0,0);
+			
+		} @else {
+
+			transform: translate3d(0, - map-get($navbar-options, height), 0);
+
+		}
+
+	}
+
+	&.is-not-bottom {
+
+	}
+
+	&.is-scrolling-up {
+
+		@if map-get($navbar-options, show-on-scrolling-up) == true {
+			transform: translate3d(0,0,0);
+		}
+
+	}
+
+	&.is-scrolling-down {
+
+	}
+
+}
+
+
+// ANIMATIONS
+@keyframes animate-menubar-menu-link-is-out {
+
+	from {
+		transform: scale3d(1,1,1);
+		transform-origin: right center;
+
+	}
+
+	to {
+		background: $primary;
+		transform: scale3d(0,1,1);
+		transform-origin: right center;
+	}
+
+}
+
+
+@keyframes animate-menubar-menu-link-is-over {
+
+	from {
+		background: $primary;
+		transform: scale3d(0,1,1);
+	}
+
+	to {
+		background: $accent;
+		transform: scale3d(1,1,1);
+	}
+
+}
+
+
+// LOGIC
+@if map-get( map-get($navbar-options, logo), allow ) == true {
+
+	.navbar {
+
+		.menubar {
+
+			&-logo #{ map-get(map-get($navbar-options, logo), desktop-id) } {
+
+				@include transition(
+					$property: (fill, opacity, transform),
+					$duration: map-get(map-get($navbar-options, logo), duration),
+					$delay: 0, $ease: ease-out,
+					$optimize: true
+				);
+				opacity: 1;
+				transform: translate3d(0,0,0);
+
+				@include break($type: 'width', $min: 0, $max: map-get($navbar-options, break) ) {
+					opacity: 0;
+					transform: translate3d(0,25%,0);
+				}
+
+			}
+
+			&-logo #{ map-get(map-get($navbar-options, logo), mobile-id) } {
+
+				@include transition(
+					$property: (fill, opacity, transform),
+					$duration: map-get(map-get($navbar-options, logo), duration),
+					$delay: 0,
+					$ease: ease-out, $optimize: true
+				);
+				opacity: 0;
+				transform: translate3d(0,25%,0);
+
+				@include break($type: 'width', $min: 0, $max: map-get($navbar-options, break) ) {
+					opacity: 1;
+					transform: translate3d(0,0,0);
+				}
+
+			}
+
+		}
+
+	}
+
+} @else {
+
+	.navbar {
+
+		.menubar-logo #{ map-get(map-get($navbar-options, logo), mobile-id) } {
+			display: none;
+		}
+
+	}
+
+}
+
+
+@if map-get($navbar-options, persistent-navbar) == true {
+
+	.navbar {
+		position: fixed;
+	}
+
+} @else {
+
+	.navbar {
+		position: absolute;
+	}
+
+}
+
+
+@if map-get($navbar-options, persistent-toggle) == true {
+
+	.navbar {
+
+		.menubar {
+
+			&-menu {
+				display: none;
+			}
+
+			&-toggle {
+				display: flex;
+			}
+
+		}
+
+	}
+
+} @else {
+
+	.navbar {
+
+		.menubar {
+
+			&-menu {
+
+				@include break($type: 'width', $min: 0, $max: map-get($navbar-options, break) ) {
+					display: none;
+				}
+
+			}
+
+			&-toggle {
+
+				@include break($type: 'width', $min: 0, $max: map-get($navbar-options, break) ) {
+					display: flex;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+@if map-get($navbar-options, menu-alignment) != 'right' and map-get($navbar-options, reverse) == false {
+
+	.navbar {
+
+		.menubar-menu {
+
+			ul {
+
+				li {
+
+					&:first-child a,
+					&:last-child a {
+						padding: {
+							left: 1rem;
+							right: 1rem;
+						}
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+@if map-get($navbar-options, reverse) == true {
+
+	.navbar {
+
+		.menubar-menu {
+
+			@extend .flex-row-reverse;
+
+			ul {
+
+				text-align: left;
+
+				li {
+
+					&:first-child a {
+						padding-left: map-get(map-get($navbar-options, padding), left);
+					}
+
+					&:last-child a {
+						padding-right: 1rem;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+@if map-get($navbar-options, reverse) == true {
+
+	.menubar-toggle {
+
+		@extend .flex-row-reverse;
+		@extend .flex-left;
+
+		&-label {
+			text-align: left;
+		}
+
+	}
+
+} @else {
+
+	.menubar-toggle {
+
+		@extend .flex-row;
+		@extend .flex-right;
+
+		&-label {
+			text-align: right;
+		}
+
+	}
+
+}

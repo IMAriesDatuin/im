@@ -1,0 +1,30 @@
+
+<!-- CONTENT: TIMELINE CAROUSEL -->
+<article class="timeline-carousel carousel">
+
+
+	{{#each timeline-carousel.content}}
+	<div class="carousel-cell grid-x align-middle align-center medium-up-2">
+
+
+		<div class="cell date skew-scroll">
+
+			<div class="inner">{{ date }}</div>
+
+		</div>
+
+
+		<div class="cell text-block skew-scroll">
+
+			<h2>{{ title }}</h2>
+			<p>{{ summary }}</p>
+
+		</div>
+
+
+	</div>
+	{{/each}}
+
+
+</article>
+<!-- // CONTENT: TIMELINE CAROUSEL -->

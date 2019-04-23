@@ -1,0 +1,224 @@
+/* -------------------------------------------------- */
+/* COMPONENT
+/* -------------------------------------------------- */
+
+// OPTIONS
+$cursor-options: (
+	color: $primary, // Set the default color.
+	hover-color: $primary, // Set the color when interacting with elements.
+	opacity: 1, // Set the transparency of the main cursor and cursor trail.
+	size: 75px, // Set the size of the main cursor. The cursor trail will double its size accordingly.  
+	hide-default-cursor: false, // Hide the default cursor. It is recommened to leave this false for usability.
+	blend-mode: hard-light, // Set the blend-mode when interacting with elements: color, color-burn, color-dodge, exclusion, darken, hue, lighten, luminosity, normal, hard-light, multiply, overlay, saturation, screen, soft-light
+	duration: 200ms, // Set the cursor trail's inertia duration.
+	ease: ease-out
+);
+
+
+// MAIN
+.cursor {
+
+	//@extend .bring-to-front;
+	pointer-events: none;
+	user-select: none;
+	opacity: 0;
+	overflow: hidden; // Note: Bug in Safari causing only a quarter of the circle to show up.
+	visibility: hidden;
+	position: fixed;
+	width: map-get($cursor-options, size);
+	height: map-get($cursor-options, size);
+	mix-blend-mode: map-get($cursor-options, blend-mode);
+
+	&-core, &-trail,
+	&-arrow, &-drag,
+	&-play, &-pause {
+
+		@include transition(
+			$property: (opacity, top, left, border, background, transform),
+			$duration: map-get($cursor-options, duration),
+			$delay: 0,
+			$ease: map-get($cursor-options, ease),
+			$optimize: true
+		);
+		position: fixed;
+		border-radius: 100%;
+		transform: translate3d(-50%,-50%,0) scale3d(0.25,0.25,1) rotate(0);
+		transform-origin: center center;
+		
+	}
+
+	&-core {
+		width: map-get($cursor-options, size) * 0.5;
+		height: map-get($cursor-options, size) * 0.5;
+		background: rgba( map-get($cursor-options, color), map-get($cursor-options, opacity) );
+	}
+
+	&-trail {
+		width: map-get($cursor-options, size) + 0;
+		height: map-get($cursor-options, size) + 0;
+		border: 2px solid rgba(map-get($cursor-options, color), 0);
+		background: rgba(map-get($cursor-options, color), 0);
+	}
+
+	&-arrow {
+		z-index: 1;
+		color: map-get($cursor-options, color);
+		font-size: 1em;
+		transform: translate3d(-50%,-50%,0) scale3d(0,0,1) rotate(45deg);
+	}
+
+	&-drag {
+		z-index: 1;
+		color: map-get($cursor-options, color);
+		font-size: 1em;
+		transform: translate3d(-50%,-50%,0) scale3d(0,0,1) rotate(90deg);
+	}
+
+	&-play,
+	&-pause {
+		z-index: 1;
+		color: map-get($cursor-options, color);
+		font-size: 1em;
+		transform: translate3d(-50%,-50%,0) scale3d(0,0,1) rotate(90deg);
+	}
+
+}
+
+
+// MODIFIERS
+.cursor {
+
+	$self: &;
+
+	&.previous, &.next,
+	&.play, &.pause {
+
+		#{$self}-core {
+			opacity: 0;
+			background: map-get($cursor-options, hover-color);
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		#{$self}-trail {
+			border-width: 2px;
+			border-color: rgba( map-get($cursor-options, hover-color), map-get($cursor-options, opacity) );
+			transform: translate(-50%, -50%) scale(0.75);
+		}
+
+	}
+
+	&.previous {
+
+		#{$self}-arrow {
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1) rotate(-180deg);
+		}
+
+	}
+
+	&.next {
+
+		#{$self}-arrow {
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1) rotate(0);
+		}
+
+	}
+
+	&.drag {
+
+		#{$self}-drag {
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1) rotate(0);
+		}
+
+		#{$self}-core {
+			opacity: 0;
+			background: map-get($cursor-options, hover-color);
+			transform: translate(-50%, -50%) scale(1);
+		}
+
+		#{$self}-trail {
+			border-width: 2px;
+			border-color: rgba( map-get($cursor-options, hover-color), map-get($cursor-options, opacity) );
+			transform: translate(-50%, -50%) scale(0.75);
+		}
+
+	}
+
+	&.play {
+
+		#{$self}-play {
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1) rotate(0);
+		}
+
+	}
+
+	&.pause {
+
+		#{$self}-pause {
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1) rotate(0);
+		}
+
+	}
+
+	&.is-ie {
+
+		&.is-hovering {
+
+			#{$self}-core {
+				opacity: 0;
+				background: map-get($cursor-options, hover-color);
+				transform: translate3d(-50%,-50%,0) scale3d(1,1,1);
+			}
+
+			#{$self}-trail {
+				border-color: rgba( map-get($cursor-options, hover-color), map-get($cursor-options, opacity) );
+				transform: translate3d(-50%,-50%,0) scale3d(1,1,1);
+			}
+
+		}
+
+	}
+
+	&.is-hovering {
+
+		#{$self}-core {
+			background: map-get($cursor-options, hover-color);
+			transform: translate3d(-50%,-50%,0) scale3d(1.5,1.5,1);
+		}
+
+		#{$self}-trail {
+			border-color: rgba( map-get($cursor-options, hover-color), map-get($cursor-options, opacity) );
+			transform: translate3d(-50%,-50%,0) scale3d(1,1,1);
+		}
+
+	}
+
+	&.is-moving {
+
+	}
+
+	&.is-down {
+
+		#{$self}-core {
+			//background: map-get($cursor-options, hover-color);
+			transform: translate3d(-50%,-50%,0) scale3d(0.75,0.75,1);
+		}
+
+		#{$self}-trail {
+			border-width: 2px;
+			border-color: rgba( map-get($cursor-options, hover-color), map-get($cursor-options, opacity) );
+			transform: translate3d(-50%,-50%,0) scale3d(0.75,0.75,1);
+		}
+
+	}
+
+}
+
+
+// LOGIC
+@if map-get($cursor-options, hide-default-cursor) == true {
+
+	:root {
+		cursor: none;
+	}
+
+}

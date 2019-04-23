@@ -1,0 +1,59 @@
+
+<!-- CONTENT: NAV PANEL -->
+<div id="nav-panel" class="nav-panel is-unlocked">
+
+
+	<!-- GRID -->
+	<div class="nav-panel-container grid-x align-middle align-left medium-up-2">
+
+
+		<!-- CELL -->
+		<nav class="cell">
+
+			<!-- MENU -->
+			<ul>
+
+				{{#each menu.main}}
+				<li>
+
+					<a href="{{ link }}" class="{{ id }}">
+						{{ title }}
+						<span class="inner" aria-hidden="true"></span>
+					</a>
+
+				</li>
+				{{/each}}
+
+			</ul>
+			<!-- // MENU -->
+
+
+		</nav>
+		<!-- // CELL -->
+
+
+		<!-- CELL -->
+		<div class="cell company-info">
+
+			{{> social-icons}}
+			{{> contact-info}}
+
+		</div>
+		<!-- // CELL -->
+
+	</div>
+	<!-- // GRID -->
+
+
+	<!-- BACKGROUND -->
+	<div class="background"></div>
+	<!-- // BACKGROUND -->
+
+
+	<!-- LOGO BACKGROUND -->
+	<div class="logo-background">be incredible.</div>
+	<!-- // LOGO BACKGROUND -->
+
+
+</div>
+<!-- // CONTENT: NAV PANEL -->

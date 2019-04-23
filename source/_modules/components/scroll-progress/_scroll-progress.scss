@@ -1,0 +1,49 @@
+/* -------------------------------------------------- */
+/* SCROLL PROGRESS
+/* -------------------------------------------------- */
+
+// OPTIONS
+$scroll-progress-options: (
+	color: $primary,
+	position: top,
+	height: 3px
+);
+
+
+// MAIN
+.scroll-progress {
+
+	//@extend .background-accent-right;
+	z-index: -1;
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: map-get($scroll-progress-options, height);
+	background: map-get($scroll-progress-options, color);
+	transform: scaleX(0);
+	transform-origin: left center;
+
+}
+
+
+// LOGIC
+@if map-get($scroll-progress-options, position) == 'top' {
+
+	.scroll-progress {
+		top: 0;
+	}
+
+} @else if map-get($scroll-progress-options, position) == 'bottom' {
+
+	.scroll-progress {
+		bottom: 0;
+	}
+
+} @else {
+
+	.scroll-progress {
+		top: 0;
+	}
+
+}

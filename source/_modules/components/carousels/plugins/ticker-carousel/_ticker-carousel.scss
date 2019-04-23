@@ -1,0 +1,45 @@
+/* -------------------------------------------------- */
+/* TICKER CAROUSEL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$ticker-carousel-options: (
+	cursor: default
+);
+
+
+// MAIN
+.ticker-carousel {
+
+	@extend .right-auto;
+	@extend .fix-font-render;
+	cursor: map-get($ticker-carousel-options, cursor);
+	//position: absolute;
+	//right: 0;
+	//bottom: 0;
+	margin: {
+		top: 6rem;
+		bottom: 6rem;
+	}
+	padding: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	width: 50%;
+	transform-origin: bottom center;
+
+	@include break($type: 'width', $min: 0, $max: $laptop, $orientation: '') {
+		margin: {
+			top: 5rem;
+			bottom: 5rem;
+		}
+		padding: {
+			right: 2rem;
+			left: 2rem;
+		}
+		width: 100%;
+	}
+
+}

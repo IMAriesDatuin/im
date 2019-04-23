@@ -1,0 +1,224 @@
+/* -------------------------------------------------- */
+/* PARALLAX CAROUSEL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$parallax-carousel-options: (
+	background-color: transparent
+);
+
+
+// MAIN
+.parallax-carousel {
+
+	//overflow: hidden;
+	width: 100%;
+	background: map-get($parallax-carousel-options, background-color);
+
+	.flickity-viewport {
+
+		//cursor: grab;
+		//width: 100%;
+		transition: height 400ms;
+		will-change: height;
+
+		.flickity-slider {
+			@extend .flex;
+		}
+
+	}
+
+	.carousel-cell {
+
+		overflow: hidden;
+		margin: 0 0 0 0;
+		width: 100%;
+		border: 2px solid $charcoal;
+
+		.carousel-container {
+
+			display: block;
+			position: relative;
+
+			img {
+
+				display: block;
+				width: 100%;
+				height: auto;
+				max-width: none;
+
+				@include break($type: 'width', $min: 0, $max: 768px, $orientation: '') {
+					//height: 350px;
+				}
+
+			}
+
+		}
+
+	}
+
+	.flickity-prev-next-button {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 200ms,
+			$delay: 0,
+			$ease: ease-in-out,
+			$optimize: true
+		);
+		opacity: 0;
+		overflow: hidden;
+		width: 10%;
+		height: 100%;
+		border-radius: 0;
+		background: none;
+		mix-blend-mode: difference;
+
+		svg {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.previous {
+			
+			/*
+			@include fade(
+				$type: 'left',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 0,
+				$prefix: '::before',
+				$suffix: '',
+				$is-fixed: false,
+				$clickable: true
+			);
+			*/
+			left: 0;
+
+		}
+
+		&.next {
+
+			/*
+			@include fade(
+				$type: 'right',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 100%,
+				$order: 0,
+				$prefix: '::before',
+				$suffix: '',
+				$is-fixed: false,
+				$clickable: true
+			);
+			*/
+			right: 0;
+
+		}
+
+	}
+
+}
+
+
+// NAV
+.parallax-nav-carousel {
+
+	//overflow: visible;
+	position: relative;
+	margin: {
+		//top: 4rem;
+		bottom: 6rem;
+	}
+	background: transparent;
+
+	.flickity-viewport {
+		overflow: hidden;
+	}
+
+	.carousel-cell {
+
+		@extend .flex-self-vh;
+		@include transition(
+			$property: (opacity),
+			$duration: 400ms,
+			$delay: 200ms,
+			$ease: ease-in-out,
+			$optimize: true
+		);
+		cursor: pointer;
+		opacity: 0.1;
+		overflow: visible;
+		margin-right: 6rem;
+		padding: {
+			right: 2rem;
+			left: 2rem;
+		}
+		width: 100%;
+		max-width: 150px;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		.carousel-container {
+
+			display: block;
+			position: relative;
+			width: 100%;
+
+			img {
+
+				display: block;
+				width: 100%;
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+					//height: 350px;
+				}
+
+			}
+
+		}
+
+		&.is-nav-selected {
+			opacity: 1;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			margin-right: 0;
+		}
+
+	}
+
+	@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+		margin: {
+			top: 0;
+			//bottom: 2rem;
+		}
+	}
+
+}
+
+
+// MODIFIERS
+.parallax-carousel {
+
+	$self: &;
+
+	&.is-first-cell {
+		
+	}
+
+	&.is-last-cell {
+		
+	}
+
+}

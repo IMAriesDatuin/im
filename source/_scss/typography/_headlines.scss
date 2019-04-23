@@ -1,0 +1,103 @@
+/* -------------------------------------------------- */
+/* HELPERS
+/* -------------------------------------------------- */
+
+// MAIN
+.headline {
+
+	@extend .fix-font-render;
+	overflow: hidden;
+	padding: {
+		top: 2rem;
+		bottom: 2rem;
+	};
+	//color: $white;
+	font-size: 3em;
+	line-height: 1em;
+
+	&-outline {
+
+		@extend .center-auto;
+		user-select: none;
+		//overflow: visible;
+		padding: {
+			top: 4rem;
+			bottom: 4rem;
+		};
+		color: $charcoal;
+		font-size: 8em;
+		line-height: 0.5em;
+		text-shadow: -1px -1px 0 $black,
+					 1px -1px 0 $black,
+					 -1px 1px 0 $black,
+					 1px 1px 0 $black;
+
+		.inner-solid {
+			color: $black !important;
+			text-shadow: none !important;
+		}
+
+		.inner-outline {
+			//color: $charcoal !important;
+		}
+
+		@include break($type: 'width', $min: $mobile, $max: $laptop, $orientation: '') {
+			width: 100%;
+			font-size: 6em;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			width: 100%;
+			font-size: 3em;
+		}
+
+	}
+
+}
+
+.headline {
+
+	&:not(&-outline) {
+
+		@include break($type: 'width', $min: 0, $max: $mobile) {
+			font-size: 2em;
+		}
+
+	}
+
+}
+
+
+
+// MODIFIERS
+.text#{$modifier} {
+
+	&#{'small'} {
+		font-size: 1em;
+	}
+
+	&#{'medium'} {
+
+		font-size: 3em;
+
+		@include break($type: 'width', $min: 0, $max: $mobile) {
+			font-size: 2em;
+		}
+
+	}
+
+	&#{'large'} {
+
+		font-size: 5em;
+
+		@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: '') {
+			font-size: 4em;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			font-size: 2.25em;
+		}
+
+	}
+
+}

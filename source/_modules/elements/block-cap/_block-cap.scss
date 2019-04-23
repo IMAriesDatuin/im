@@ -1,0 +1,93 @@
+/* -------------------------------------------------- */
+/* BLOCK CAP
+/* -------------------------------------------------- */
+
+// OPTIONS
+$block-cap-options: (
+	background-color: $charcoal
+);
+
+
+// MAIN
+.block-cap {
+	z-index: 1;
+	pointer-events: none;
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	margin: {
+		left: auto;
+		right: auto;
+	}
+	width: 100%;
+	fill: map-get($block-cap-options, background-color);
+}
+
+
+// MODIFIERS
+.block-cap {
+
+	$self: &;
+
+	&.is-ready {
+
+	}
+
+
+	&.is-top {
+
+	}
+
+
+	&.is-not-top {
+
+	}
+
+
+	&.is-bottom {
+
+	}
+
+
+	&.is-not-bottom {
+
+	}
+
+
+	&.is-scrolling-up {
+
+	}
+
+
+	&.is-scrolling-down {
+
+	}
+
+}
+
+
+// ANIMATIONS
+@keyframes animate-block-cap {
+
+	from {
+
+	}
+
+	to {
+
+	}
+
+}
+
+
+// LOGIC
+@if null == true {
+
+
+
+} @else {
+
+
+
+}

@@ -1,0 +1,42 @@
+/* -------------------------------------------------- */
+/* COMPONENT
+/* -------------------------------------------------- */
+
+// OPTIONS
+$animated-icon-options: (
+
+);
+
+
+// MAIN
+.animated-icon {
+
+	overflow: visible;
+	display: block;
+	margin: {
+		top: 2rem;
+		right: auto;
+		bottom: 0;
+		left: auto;
+	}
+	width: 60%;
+	height: auto;
+	//transform-origin: center center;
+	
+}
+
+
+// MODIFIERS
+.animated-icon {
+
+	$self: &;
+
+	#{$self}-element {
+		
+	}
+
+	&.is-ready {
+
+	}
+
+}

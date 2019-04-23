@@ -1,0 +1,145 @@
+/* -------------------------------------------------- */
+/* LAZY LOAD
+/* -------------------------------------------------- */
+
+// OPTIONS
+$lazy-load-options: (
+	background-color: $charcoal,
+	duration: 600ms,
+	delay: 200ms
+);
+
+
+// IMAGE
+img {
+
+	display: block;
+	width: auto;
+	height: auto;
+	border: 0;
+
+	&.lazy {
+
+		@include transition(
+			$property: (opacity),
+			$duration: map-get($lazy-load-options, duration) * 0.5,
+			$delay: 0,
+			$ease: cubic-bezier(0.51,0.92,0.24,1.15),
+			$optimize: true
+		);
+		opacity: 1;
+		position: relative;
+
+		&.initial,
+		&.is-loaded,
+		&.on-error {
+			opacity: 1;
+		}
+
+		/* IE Edge fix for IntersectionObserver. */
+		&[data-src],
+		&[data-srcset] {
+			display: block;
+			min-height: 1px;
+		}
+
+	}
+
+	&:not([src]) {
+		visibility: hidden;
+	}
+
+}
+
+
+// BACKGROUND IMAGE
+div {
+
+	&.lazy {
+
+		&[data-was-processed='true'] {
+			opacity: 1;
+		}
+
+	}
+
+}
+
+
+// ELEMENT
+.lazy-container {
+
+	//display: block;
+	position: relative;
+	width: auto;
+	//height: 100% !important;
+
+	&::before {
+		@extend .pseudo;
+		@include transition(
+			$property: (transform),
+			$duration: map-get($lazy-load-options, duration),
+			$delay: map-get($lazy-load-options, delay),
+			$ease: cubic-bezier(1, 0, 0, 1),
+			$optimize: true
+		);
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: map-get($lazy-load-options, background-color);
+		transform: scale3d(1,1,1);
+		transform-origin: right center;
+	}
+
+	&.is-loaded {
+
+		&::before {
+			transform: scale3d(0,1,1);
+		}
+
+	}
+
+	&.on-error {
+		background-image: url(../assets/error-static.gif);
+		background-repeat: repeat;
+	}
+
+}
+
+
+// MODIFIERS
+.lazy {
+
+	&.in-view {
+
+	}
+
+	&.is-loading {
+		//visibility: hidden;
+	}
+
+	&.is-loaded {
+		visibility: visible;
+	}
+
+	&.on-error {
+		//background-image: url(../assets/error-static.gif);
+		//background-repeat: repeat;
+	}
+
+	&.is-finished {
+
+	}
+
+}
+
+/* Firefox fix for load anomaly. */
+@-moz-document url-prefix() {
+
+	img:-moz-loading {
+		visibility: hidden;
+	}
+	
+}

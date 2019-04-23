@@ -1,0 +1,37 @@
+
+# CONTENT
+content:
+ -
+  id: ''
+  image: 'assets/logos/american-dental-association.svg'
+  description: 'American Dental Association'
+
+
+ -
+  id: ''
+  image: 'assets/logos/american-medical-association.svg'
+  description: 'American Medical Association'
+
+
+ -
+  id: ''
+  image: 'assets/logos/american-society-for-dematologic-surgery.svg'
+  description: 'American Society for Dematologic Surgery'
+  
+
+ -
+  id: ''
+  image: 'assets/logos/american-society-of-plastic-surgeons.svg'
+  description: 'American Society of Plastic Surgeons'
+
+
+ -
+  id: ''
+  image: 'assets/logos/member-of-the-american-society-for-aesthetic-plastic-surgery.svg'
+  description: 'Member of the American Society for Aesthetic Plastic Surgery'
+
+
+ -
+  id: ''
+  image: 'assets/logos/the-american-board-of-venous-and-lymphatic-medicine.svg'
+  description: 'The American Board of Venous & Lymphatic Medicine'

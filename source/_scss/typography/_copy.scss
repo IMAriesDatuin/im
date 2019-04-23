@@ -1,0 +1,125 @@
+/* -------------------------------------------------- */
+/* FONT FAMILIES
+/* -------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6, .font-headline {
+	font: $headline;
+}
+
+.font-subheadline {
+	font: $subheadline;
+}
+
+.font-subtitle {
+	font: $subheadline;
+}
+
+.font-copy, p {
+	font: $copy;
+}
+
+.font-stack {
+	font: $font-stack;
+}
+
+.font-icon {
+	font: $font-icon;
+}
+
+
+/* -------------------------------------------------- */
+/* TYPE
+/* -------------------------------------------------- */	
+
+h, .h {
+
+	@each $name, $font-size in $font-sizes {
+
+		&#{$name} {
+			margin: {
+				top: 0;
+				bottom: $headline-margin;
+			}
+			font-size: pxtorem($font-size);
+			line-height: $headline-line-height;
+			/*line-height: round( pxtoem($font-size / 2 * 0.5, $basepx) );*/
+		}
+
+	}
+
+}
+
+p {
+	margin: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	};
+	padding: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	};
+	font-size: 1em;
+	line-height: $copy-line-height;
+}
+
+.p {
+
+	@each $name, $font-size in $font-sizes {
+
+		&#{$name} {
+			font-size: pxtoem($font-size / 2);
+		}
+
+	}
+
+}
+
+.p-column {
+
+	margin-bottom: 2rem;
+	padding-right: 8rem;
+	line-height: 2em;
+
+	& ~ p {
+
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include break($type: 'width', $min: 0, $max: 1023px, $orientation: '') {
+		padding-right: 0;
+	}
+
+}
+
+.subtitle {
+	color: $dark-gray;
+	font: $subheadline;
+	font-size: 1em;
+	letter-spacing: pxtoem(6px);
+	text-transform: uppercase;
+}
+
+.fluid-type {
+	@include fluid-type( map-get($font-sizes, 6) / 2, map-get($font-sizes, 1) );
+}
+
+
+// LOGIC
+@if $justify-text-on-mobile == true {
+
+	p {
+
+		@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {
+			text-align: justify;
+		}
+
+	}
+
+}

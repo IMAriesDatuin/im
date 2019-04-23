@@ -1,0 +1,553 @@
+/* -------------------------------------------------- */
+/* FOOTER
+/* -------------------------------------------------- */
+
+// OPTIONS
+$footer-options: (
+	text-color: $white, // Set the default color for all elements.
+	text-hover-color: $primary, // Set the hover color for all elements.
+	background-color: $black, // Set the nav panel's background color.
+	duration: 800ms,
+	delay: 200ms
+);
+
+
+// MAIN
+.footer {
+
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	//height: 50vh;
+	background: map-get($footer-options, background-color);
+
+	.footer-container {
+
+		@extend .center-auto;
+		padding: {
+			top: 8rem;
+			right: 2rem;
+			bottom: 2rem;
+			left: 2rem;
+		}
+		width: 75%;
+		height: 100%;
+		//max-width: map-get($section, width);
+
+		.company-info {
+
+			margin-bottom: 8rem;
+
+			@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+				margin-bottom: 4rem;
+			}
+
+			.cell {
+
+				.title, .location, .phone {
+
+					@include transition(
+						$property: (color),
+						$duration: 200ms,
+						$delay: 0,
+						$ease: ease-in-out,
+						$optimize: true
+					);
+
+					@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+						margin: {
+							top: 2rem;
+							bottom: 0;
+						}
+					}
+
+				}
+
+				.title {
+
+					position: relative;
+					color: map-get($footer-options, text-color);
+					font: $subheadline;
+					font-size: 1.25rem;
+					letter-spacing: 0.125em;
+
+					&::after {
+						content: '.';
+						position: absolute;
+						bottom: 0;
+						color: $primary;
+					}
+
+				}
+
+				.location {
+
+					display: block;
+					margin: {
+						top: 2rem;
+						bottom: 4rem;
+					}
+					color: darken( map-get($footer-options, text-color), 50% );
+					font: $subheadline;
+					font-size: 0.75em;
+					line-height: 1.75em;
+
+					&:hover {
+						color: map-get($footer-options, text-hover-color);
+					}
+
+				}
+
+				.phone {
+
+					display: block;
+					position: relative;
+					padding-bottom: 1rem;
+					color: darken( map-get($footer-options, text-color), 50% );
+					font: $subheadline;
+					font-size: 0.75em;
+
+					&::after {
+						@include transition(
+							$property: (transform),
+							$duration: 200ms,
+							$delay: 0,
+							$ease: ease-out,
+							$optimize: false
+						);
+						content: '';
+						z-index: 1;
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						width: 50%;
+						height: 1px;
+						background: map-get($footer-options, text-hover-color);
+						transform: scale3d(0,1,1);
+						transform-origin: left center;
+					}
+
+					&:hover {
+
+						color: map-get($footer-options, text-hover-color);
+
+						&::after {
+							transform: scale3d(1,1,1);
+						}
+
+					}
+
+				}
+
+				&:nth-of-type(1),
+				&:nth-of-type(2) {
+					display: none;
+				}
+
+			}
+
+		}
+
+		.menu {
+
+			.social-icons {
+
+				display: inline-block;
+				height: 100%;
+				text-align: left;
+
+				@include break($type: 'width', $min: 0, $max: $mobile, $orientation: 'portrait') {
+					margin: {
+						top: 4rem;
+						bottom: 2rem;
+					}
+				}
+
+				li {
+					
+					overflow: visible;
+					display: inline-block;
+					margin: {
+						left: 1rem;
+						right: 1rem;
+					};
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					a {
+
+						color: map-get($footer-options, text-color);
+						font-size: 1.25em;
+
+						span {
+
+							@include transition(
+								$property: (color, transform, background),
+								$duration: 250ms,
+								$delay: 0,
+								$ease: ease-in-out,
+								$optimize: true
+							);
+							display: block;
+							position: relative;
+							padding-bottom: 1rem;
+							
+							&::after {
+								@include transition(
+									$property: (background, transform),
+									$duration: 100ms,
+									$delay: 100ms,
+									$ease: ease-in-out,
+									$optimize: true
+								);
+								content: '';
+								z-index: 1;
+								position: absolute;
+								left: 0;
+								bottom: 0;
+								width: 100%;
+								height: 1px;
+								background: map-get($footer-options, text-color);
+								transform: scale3d(0,1,1);
+								transform-origin: left center;
+							}
+
+						}
+
+						&:hover {
+
+							color: map-get($footer-options, text-hover-color);
+
+							span {
+
+								@include animate(
+									$name: animate-nav-panel-circular-icon,
+									$direction: normal,
+									$play: true,
+									$duration: 200ms,
+									$delay: 0,
+									$repeat: 1,
+									$ease: ease-in-out,
+									$reset: true
+								);
+
+								&::after {
+									background: map-get($footer-options, text-hover-color);
+									transform: scale3d(1,1,1);
+								}
+
+							}
+
+						}
+
+					}
+
+				}
+
+				& + span {
+
+					display: inline-block;
+					position: relative;
+					margin: {
+						left: 1.25rem;
+						right: 1.25rem;
+					}
+					width: 25px;
+					height: 5px;
+
+					&::after {
+						content: '';
+						position: absolute;
+						width: 100%;
+						height: 1px;
+						background: $white;
+					}
+
+					@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+						display: none;
+					}
+
+				}
+
+				& + span + a {
+
+					display: inline-block;
+					position: relative;
+					padding-bottom: 1rem;
+					color: map-get($footer-options, text-color);
+					font: $headline;
+					font-size: 0.75em;
+
+					@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+						display: block;
+					}
+
+					&::after {
+						@include transition(
+							$property: (transform),
+							$duration: 200ms,
+							$delay: 0,
+							$ease: ease-out,
+							$optimize: false
+						);
+						content: '';
+						z-index: 1;
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						width: 100%;
+						height: 1px;
+						background: map-get($footer-options, text-hover-color);
+						transform: scale3d(0,1,1);
+						transform-origin: left center;
+					}
+
+					&:hover {
+
+						color: map-get($footer-options, text-hover-color);
+
+						&::after {
+							transform: scale3d(1,1,1);
+						}
+
+					}
+
+				}
+
+			}
+
+			nav {
+
+				height: 100%;
+
+				ul {
+
+					text-align: right;
+
+					li {
+
+						display: inline-block;
+						position: relative;
+						margin: {
+							left: 0.25rem;
+							right: 0.25rem;
+						}
+
+						&:first-child {
+							margin-left: 0;
+						}
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						a {
+
+							@extend .text-truncate;
+							@include transition(
+								$property: (color, background),
+								$duration: 200ms,
+								$delay: 0,
+								$ease: ease-out,
+								$optimize: false
+							);
+							position: relative;
+							padding-bottom: 1rem;
+							color: map-get($footer-options, text-color);
+							font: $subheadline;
+							font-size: 0.75em;
+							//text-transform: uppercase;
+
+							&::after {
+								@include transition(
+									$property: (transform),
+									$duration: 200ms,
+									$delay: 0,
+									$ease: ease-out,
+									$optimize: false
+								);
+								content: '';
+								z-index: 1;
+								position: absolute;
+								left: 0;
+								bottom: 0;
+								width: 100%;
+								height: 1px;
+								background: map-get($footer-options, text-hover-color);
+								transform: scale3d(0,1,1);
+								transform-origin: left center;
+							}
+
+							&:hover {
+
+								color: map-get($footer-options, text-hover-color);
+
+								&::after {
+									transform: scale3d(1,1,1);
+								}
+								
+							}
+
+							&.is-active {
+
+								color: map-get($footer-options, text-hover-color);
+
+								&::after {
+									transform: scale3d(1,1,1);
+								}
+								
+							}
+
+							@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+								font-size: 1em;
+							}
+
+						}
+
+						@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+							margin: {
+								top: 2rem;
+								right: 0;
+								bottom: 2rem;
+								left: 0;
+							}
+							display: block;
+							text-align: left;
+						}
+
+					}
+
+					@include break($type: 'width', $min: 0, $max: 1023px, $orientation: '') {
+						text-align: left;
+					}
+
+
+
+				}
+
+			}
+
+		}
+
+		.legal-stuff {
+			margin-top: 2rem;
+			width: 100%;
+			color: $dark-gray;
+			font: $subheadline;
+			font-size: 0.75em;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {
+			width: 100%
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			padding: {
+				top: 4rem;
+			}
+		}
+
+	}
+
+	.the-code {
+
+		opacity: 0.3;
+		position: absolute;
+		bottom: 2%;
+		left: 2%;
+		color: $dark-gray;
+		font: $subheadline;
+		font-size: 0.75em;
+		line-height: 1.25em;
+		//transform: rotate(90deg);
+
+		span {
+			margin: {
+				top: 0.5rem;
+				bottom: 0.5rem;
+			}
+			display: block;
+		}
+
+	}
+
+	.logo-background {
+
+		z-index: -1;
+		user-select: none;
+		position: absolute;
+		left: 8%;
+		bottom: 25%;
+		color: map-get($footer-options, background-color);
+		font: $headline;
+		font-size: 16em;
+		line-height: 0;
+		text-shadow: -1px -1px 0 rgba($charcoal, 1),  
+					 1px -1px 0 rgba($charcoal, 1),
+					 -1px 1px 0 rgba($charcoal, 1),
+					 1px 1px 0 rgba($charcoal, 1);
+		transform: rotate(0);
+
+		@include break($type: 'width', $min: $tablet, $max: $laptop, $orientation: '') {
+			left: 2%;
+			bottom: 15%;
+			font-size: 10em;
+		}
+
+		@include break($type: 'width', $min: $mobile, $max: $tablet, $orientation: '') {
+			left: 2%;
+			bottom: 10%;
+			font-size: 8em;
+		}
+
+		@include break($type: 'width', $min: 0, $max: $mobile, $orientation: '') {
+			left: 85%;
+			bottom: 5%;
+			font-size: 5em;
+			transform: rotate(-90deg);
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.footer {
+
+	&::before {
+		@extend .pseudo;
+		@extend .bring-to-front;
+		@include transition(
+			$property: (transform),
+			$duration: map-get($footer-options, duration),
+			$delay: map-get($footer-options, delay),
+			$ease: cubic-bezier(1, 0, 0, 1),
+			$optimize: true
+		);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $charcoal;
+		backface-visibility: hidden;
+		transform: scale3d(1,1,1) translateZ(0);
+		transform-origin: right center;
+		perspective: 1000;
+	};
+
+	&.in-view {
+
+		&::before {
+			transform: scale3d(0,1,1) translateZ(0);
+		};
+
+	}
+
+}

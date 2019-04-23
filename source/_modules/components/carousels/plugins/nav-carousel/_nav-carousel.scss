@@ -1,0 +1,135 @@
+/* -------------------------------------------------- */
+/* NAV CAROUSEL
+/* -------------------------------------------------- */
+
+// OPTIONS
+$nav-carousel-options: (
+	cursor: default
+);
+
+
+// MAIN
+.nav-carousel {
+
+	.flickity-viewport {
+
+		cursor: map-get($nav-carousel-options, cursor);
+		//width: 100%;
+		transition: height 400ms;
+		will-change: height;
+
+		.flickity-slider {
+			@extend .flex;
+			cursor: map-get($nav-carousel-options, cursor);
+		}
+
+	}
+
+	.carousel-cell {
+
+		.carousel-container {
+
+		}
+
+		&.is-nav-selected {
+			opacity: 1;
+		}
+
+	}
+
+	.flickity-prev-next-button {
+
+		@include transition(
+			$property: (opacity),
+			$duration: 400ms,
+			$delay: 0,
+			$ease: ease-out,
+			$optimize: true
+		);
+		pointer-events: none;
+		opacity: 1;
+		overflow: hidden;
+		width: 10%;
+		height: 100%;
+		border-radius: 0;
+		background: transparent;
+
+		svg {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.previous {
+
+			@include fade(
+				$type: 'left',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 75%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			left: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+		&.next {
+
+			@include fade(
+				$type: 'right',
+				$color: $charcoal,
+				$alpha: 1,
+				$scale: 100%,
+				$start: 0%,
+				$stop: 75%,
+				$order: 1,
+				$prefix: '',
+				$suffix: '::before',
+				$is-fixed: false,
+				$clickable: false
+			);
+			right: -1px;
+
+			&.is-disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+.nav-carousel {
+
+	$self: &;
+
+	&.is-first-cell {
+
+	}
+
+	&.is-last-cell {
+
+		&::before {
+			opacity: 0;
+		}
+
+	}
+
+}

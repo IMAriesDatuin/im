@@ -1,0 +1,353 @@
+/* -------------------------------------------------- */
+/* MENU TOGGLE ICON
+/* -------------------------------------------------- */
+
+// OPTIONS
+$menu-toggle-options: (
+	open-label: 'Menu', // Set the label or leave blank. Long text will be truncated.
+	close-label: 'Close', // Set the label or leave blank. Long text will be truncated.
+	color: $primary, // Set the default color or inactive state.
+	alt-color: $white,
+	active: $charcoal, // Set the actvie state color when the menu is open.
+	background-color: transparent, // Set the menu toggle icon's background color.
+	size: 0.5em, // Set the size of the menu toggle icon.
+	thickness: 0.2em, // Defines the thickness of lines.
+	radius: 0.2em, // Defines the roundness of lines.
+	duration: 200ms, // Set how quickly the transition between open state and close state happens.
+);
+
+
+// MAIN
+.menubar-toggle {
+
+	$self: &; // Create a variable for the parent element for reference.
+
+	.menu-toggle-icon {
+
+		@extend .flex-self-v;
+		@include transition(
+			$property: (background, transform),
+			$duration: map-get($menu-toggle-options, duration),
+			$delay: 0,
+			$ease: ease-in-out,
+			$optimize: true
+		);
+		cursor: pointer;
+		position: relative;
+		width: 4em;
+		height: auto;
+		font-size: map-get($menu-toggle-options, size);
+		-webkit-tap-highlight-color: transparent;
+
+		.inner {
+
+			@include transition(
+				$property: (transform),
+				$duration: map-get($menu-toggle-options, duration),
+				$delay: 0,
+				$ease: ease-in-out,
+				$optimize: true
+			);
+			content: '';
+			display: block;
+			position: relative;
+			top: 50%;
+			margin-top: -0.125em;
+			width: 100%;
+			height: map-get($menu-toggle-options, thickness);
+			border-radius: map-get($menu-toggle-options, radius);
+			background: map-get($menu-toggle-options, color);
+			transform: rotate(0);
+
+			&::before,
+			&::after {
+
+				@include transition(
+					$property: (left, right),
+					$duration: map-get($menu-toggle-options, duration),
+					$delay: 0,
+					$ease: ease-out,
+					$optimize: true
+				);
+				content: '';
+				pointer-events: none;
+				position: absolute;
+				width: 2em;
+				height: map-get($menu-toggle-options, thickness);
+				border-radius: map-get($menu-toggle-options, radius);
+				background: map-get($menu-toggle-options, color);
+				transform: rotate(0);
+			}
+
+			&::before {
+				top: 1em;
+				right: 0;
+			}
+
+			&::after {
+				top: -1em;
+				left: 0;
+			}
+
+		}
+
+		&::after {
+
+			@extend .center-vh;
+			//@extend .box-shadow-sm;
+			@include transition(
+				$property: (opacity),
+				$duration: map-get($menu-toggle-options, duration),
+				$delay: 0,
+				$ease: ease-out,
+				$optimize: true
+			);
+			content: '';
+			opacity: 0;
+			z-index: -1;
+			position: absolute;
+			padding: 2.5rem;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			background: map-get($menu-toggle-options, background-color);
+
+		}
+
+	}
+
+	.menu-toggle-label {
+
+		@extend .flex-self-v;
+		@extend .text-truncate;
+		@include animate(
+			$name: animate-menu-toggle-is-closed,
+			$direction: normal,
+			$play: true,
+			$duration: map-get($menu-toggle-options, duration),
+			$delay: 0,
+			$repeat: 1,
+			$ease: ease-out,
+			$reset: true
+		);
+		@include transition(
+			$property: (color, letter-spacing, transform),
+			$duration: map-get($menu-toggle-options, duration),
+			$delay: 0,
+			$ease: ease-out,
+			$optimize: true
+		);
+		cursor: pointer;
+		padding: {
+			left: 2rem;
+			right: 2rem;
+		}
+		width: 100%;
+		//max-width: 125px;
+		color: map-get($menu-toggle-options, color);
+		font: $headline;
+		font-size: 0.75em;
+		font-weight: 900;
+		letter-spacing: 0.125em;
+		text-transform: uppercase;
+		text-align: right;
+		transform-origin: center center;
+
+		&::before {
+
+			@include transition(
+				$property: (opacity),
+				$duration: map-get($menu-toggle-options, duration),
+				$delay: 0,
+				$ease: ease-out,
+				$optimize: true
+			);
+			content: map-get($menu-toggle-options, open-label);
+			opacity: 1;
+
+		}
+
+		@include break($type: 'width', $min: 0, $max: 375px ) {
+			display: none;
+		}
+
+	}
+
+	&:not(.is-open):hover {
+
+		.menu-toggle-icon {
+
+			.inner {
+
+				&::before {
+					right: -0.5em;
+				}
+
+				&::after {
+					left: -0.5em;
+				}
+
+			}
+
+		}
+
+		.menu-toggle-label {
+
+			@extend .text-spacing-lg;
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS / HELPERS
+.menubar-toggle {
+
+	$self: &; // Create a variable for the parent element for reference.
+
+	&.is-open {
+
+		.menu-toggle-icon {
+
+			.inner {
+
+				background: transparent !important;
+				transform: rotate(180deg);
+
+				&::after,
+				&::before {
+
+					top: 0;
+					left: 0.5em;
+					background: map-get($menu-toggle-options, active);
+
+					@include break($type: 'width', $min: 0, $max: 375px, $orientation: '') {
+						left: 1em;
+					}
+
+				}
+
+				&::before {
+					transform: rotate(135deg);
+				}
+
+				&::after {
+					transform: rotate(-135deg);
+				}
+
+			}
+
+		}
+
+		.menu-toggle-label {
+
+			color: map-get($menu-toggle-options, active);
+			animation-name: animate-menu-toggle-is-open;
+
+			&::before {
+				content: map-get($menu-toggle-options, close-label);
+				color: map-get($menu-toggle-options, active);
+			}
+
+		}
+
+	}
+
+	&.is-ready {
+
+	}
+
+	&.is-top {
+
+	}
+
+	&.is-not-top:not(.is-open) {
+
+		.menu-toggle-icon {
+
+			&::after {
+				opacity: 1;
+			};
+
+			.inner {
+
+				background: map-get($menu-toggle-options, alt-color);
+
+				&::before,
+				&::after {
+					background: map-get($menu-toggle-options, alt-color);
+				}
+
+			}
+
+		}
+
+		.menu-toggle-label {
+
+			&::before {
+				opacity: 0;
+				//color: $primary;
+			}
+
+		}
+
+	}
+
+	&.is-bottom {
+
+	}
+
+	&.is-not-bottom {
+
+	}
+
+	&.is-scrolling-up {
+
+	}
+
+	&.is-scrolling-down {
+
+	}
+
+}
+
+
+// ANIMATIONS
+@keyframes animate-menu-toggle-is-open {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+		transform: translate3d(10%,0,0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0,0,0);
+	}
+
+}
+
+
+@keyframes animate-menu-toggle-is-closed {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+		transform: translate3d(10%,0,0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0,0,0);
+	}
+
+}

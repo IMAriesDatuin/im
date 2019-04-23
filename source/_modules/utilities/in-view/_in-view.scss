@@ -1,0 +1,101 @@
+/* -------------------------------------------------- */
+/* IN VIEW
+/* -------------------------------------------------- */
+
+// OPTIONS
+$in-view-options: (
+	background-color: $charcoal,
+	duration: 800ms,
+	delay: 200ms
+);
+
+
+// MAIN
+.reveal-container {
+
+	/*
+	@include transition(
+		$property: (opacity),
+		$duration: map-get($in-view-options, duration),
+		$delay: map-get($in-view-options, delay),
+		$ease: ease-out,
+		$optimize: true
+	);
+	opacity: 1;
+	overflow: hidden;
+	*/
+	//transform: translate3d(0,50%,1);
+	//transform-origin: left center;
+
+	/*
+	&::before {
+		@extend .pseudo;
+		@extend .bring-to-front;
+		@include transition(
+			$property: (transform),
+			$duration: map-get($in-view-options, duration),
+			$delay: 0,
+			$ease: cubic-bezier(1, 0, 0, 1),
+			$optimize: true
+		);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: map-get($in-view-options, background-color);
+		backface-visibility: hidden;
+		transform: scale3d(1,1,1) translateZ(0);
+		transform-origin: right center;
+		perspective: 1000;
+	};
+	*/
+
+	&.in-view {
+
+		//opacity: 1;
+		//transform: translate3d(0,0,1);
+
+		/*
+		&::before {
+			transform: scale3d(0,1,1) translateZ(0);
+		};
+		*/
+
+	}
+
+}
+
+
+// MODIFIERS
+.reveal {
+
+	&::before {
+		@extend .pseudo;
+		@include transition(
+			$property: (transform),
+			$duration: map-get($in-view-options, duration),
+			$delay: map-get($in-view-options, delay),
+			$ease: cubic-bezier(1, 0, 0, 1),
+			$optimize: true
+		);
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: map-get($in-view-options, background-color);
+		backface-visibility: hidden;
+		transform: scale3d(1,1,1) translateZ(0);
+		transform-origin: right center;
+		perspective: 1000;
+	};
+
+	&.in-view {
+
+		&::before {
+			transform: scale3d(0,1,1) translateZ(0);
+		};
+
+	}
+
+}
