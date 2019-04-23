@@ -49,8 +49,14 @@ $fade-carousel-options: (
 		border: 2px solid $charcoal;
 
 		.carousel-container {
+
 			display: block;
 			position: relative;
+
+			img {
+				width: 100%;
+			}
+
 		}
 
 	}
