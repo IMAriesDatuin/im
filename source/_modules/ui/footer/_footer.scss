@@ -436,11 +436,24 @@ $footer-options: (
 		}
 
 		.legal-stuff {
+
 			margin-top: 2rem;
 			width: 100%;
 			color: $dark-gray;
 			font: $subheadline;
 			font-size: 0.75em;
+
+			.legal-link {
+
+				color: $dark-gray;
+
+				&:hover {
+					color: $gray;
+				}
+
+			}
+
+
 		}
 
 		@include break($type: 'width', $min: 0, $max: $tablet, $orientation: '') {

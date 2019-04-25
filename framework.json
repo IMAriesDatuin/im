@@ -4,8 +4,8 @@
 	"attribute": "defer",
 	
 	"files": ["<JQUERY>",
-			  "jquery/dist/jquery.js",
-			  ">>jquery/dist/jquery.slim.js",
+			  ">>jquery/dist/jquery.js",
+			  "jquery/dist/jquery.slim.js",
 			  ">>jquery.easing/jquery.easing.js",
 
 
@@ -38,7 +38,7 @@
 
 
 			  "<CONTAINERS>",
-			  "foundation-sites/dist/js/plugins/foundation.accordion.js",
+			  ">>foundation-sites/dist/js/plugins/foundation.accordion.js",
 			  ">>foundation-sites/dist/js/plugins/foundation.dropdown.js",
 			  ">>foundation-sites/dist/js/plugins/foundation.offcanvas.js",
 			  ">>foundation-sites/dist/js/plugins/foundation.reveal.js",

@@ -107,18 +107,40 @@ $navbar-options: (
 			//flex-shrink: strip-unit( map-get(map-get($navbar-options, logo), size) / 10 );
 
 			.logo {
+				
 				@extend .flex-self-v;
 				@include transition(
-					$property: (color, fill),
+					$property: (color),
 					$duration: map-get(map-get($navbar-options, logo), duration),
 					$delay: 0,
 					$ease: ease-out,
 					$optimize: true
 				);
 				width: map-get(map-get($navbar-options, logo), size);
-				color: map-get(map-get($navbar-options, logo), color);
+				//color: map-get(map-get($navbar-options, logo), color);
 				font-size: 2em;
 				fill: map-get(map-get($navbar-options, logo), color);
+
+				path {
+
+					@include transition(
+						$property: (fill),
+						$duration: map-get(map-get($navbar-options, logo), duration),
+						$delay: 0,
+						$ease: ease-out,
+						$optimize: true
+					);
+
+					&:not(.logo-fill) {
+						fill: map-get(map-get($navbar-options, logo), color);
+					}
+
+					&.logo-fill {
+						fill: $white;
+					}
+
+				}
+
 			}
 
 			&.is-open {
@@ -292,7 +314,19 @@ $navbar-options: (
 
 			.logo {
 				color: map-get(map-get($navbar-options, logo), alt-color);
-				fill: map-get(map-get($navbar-options, logo), alt-color);
+
+				path {
+
+					&:not(.logo-fill) {
+						fill: map-get(map-get($navbar-options, logo), alt-color);
+					}
+
+					&.logo-fill {
+						fill: map-get(map-get($navbar-options, logo), color);
+					}
+
+				}
+
 			}
 
 		}

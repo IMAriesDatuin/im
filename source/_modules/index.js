@@ -63,19 +63,19 @@ var pageManager = (function pageManager($, window, document, undefined) {
 		console.log('Currently viewing: ' + currentPath);
 
 
-		$('a[href^="' + rootLink + '"]:not([data-no-swup])').removeClass('is-active');
-		$('a[href^="' + rootLink + '"]:not([data-no-swup])').parent().removeClass('is-active');
+		$('a[href^="' + rootLink + '"]:not(.button):not([data-no-swup])').removeClass('is-active');
+		$('a[href^="' + rootLink + '"]:not(.button):not([data-no-swup])').parent().removeClass('is-active');
 
 
 		if(location.pathname === '' + rootLink + '') { // Check if url is at root location.
 
-			$('a[href="' + rootLink + '"]:not([data-no-swup]').addClass('is-active');
-			$('a[href="' + rootLink + '"]:not([data-no-swup]').parent().addClass('is-active');
+			$('a[href="' + rootLink + '"]:not(.button):not([data-no-swup]').addClass('is-active');
+			$('a[href="' + rootLink + '"]:not(.button):not([data-no-swup]').parent().addClass('is-active');
 
 		} else {
 
-			$('a[href^="' + rootLink + '' + currentPath + '"]:not([data-no-swup]').addClass('is-active');
-			$('a[href^="' + rootLink + '' + currentPath + '"]:not([data-no-swup]').parent().addClass('is-active');
+			$('a[href^="' + rootLink + '' + currentPath + '"]:not(.button):not([data-no-swup]').addClass('is-active');
+			$('a[href^="' + rootLink + '' + currentPath + '"]:not(.button):not([data-no-swup]').parent().addClass('is-active');
 
 		}
 
@@ -127,7 +127,7 @@ var pageManager = (function pageManager($, window, document, undefined) {
 	/* -------------------------------------------------- */
 
 	var pageManagerOptions = {
-		LINK_SELECTOR: 'a[href^="' + window.location.origin + '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
+		LINK_SELECTOR: 'a[href^="' + window.location.origin + '"]:not(.button):not([data-no-swup]), a[href^="/"]:not(.button):not([data-no-swup]), a[href^="#"]:not(.button):not([data-no-swup])',
 		FORM_SELECTOR: 'form[data-swup-form]',
 		elements: ['.swup'],
 		animationSelector: '[class*="page-transition-"]',
