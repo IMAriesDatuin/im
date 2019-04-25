@@ -544,8 +544,8 @@
 
 	}
 
-	@if $optimize { // Recommended to leave this option to false.
-		//will-change: $property;
+	@if $optimize {
+		will-change: $property;
 	}
 
 }

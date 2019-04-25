@@ -115,7 +115,7 @@ var legal = (function legal($, window, document, undefined) {
 		//init: init
 		legalLink: legalLink
 
-	}	
+	};
 
 
 }(jQuery, window, document));

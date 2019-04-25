@@ -210,7 +210,7 @@ var cursor = (function cursor($, window, document, undefined) {
 			$cursor: $cursor,
 			$cursorCore: $cursorCore,
 			$cursorTrail: $cursorTrail
-		}
+		};
 
 	}
 

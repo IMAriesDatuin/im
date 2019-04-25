@@ -18,7 +18,7 @@ var modules = (function modules($, window, document, undefined) {
 		/* -------------------------------------------------- */
 
 		dataAttr.color();
-		dataAttr.image();
+		//dataAttr.image();
 		dataAttr.page();
 		headroom.init();
 		inView.init();

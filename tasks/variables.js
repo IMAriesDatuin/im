@@ -138,6 +138,7 @@ export const purgeCSSOptions = {
 
 
 // CLEAN
+/*
 export const cleanCSSOptions = {
 								compatibility: '*',
 								rebase: config.optimizations.css.rebase,
@@ -162,6 +163,38 @@ export const cleanCSSOptions = {
 											removeDuplicateMediaBlocks: true, // Controls duplicate @media (true).
 											removeDuplicateRules: true, // Controls duplicate rules (true).
 											removeUnusedAtRules: false, // Controls unused at rule (false). *Note: Available since 4.1.0.
+											restructureRules: false, // Controls rule restructuring (false).
+											skipProperties: [] // Controls which properties won't be optimized, defaults to '[]' which means all will be optimized (since 4.1.0).
+										}
+								}
+
+};
+*/
+
+export const cleanCSSOptions = {
+								compatibility: '*',
+								rebase: config.optimizations.css.rebase,
+								//rebaseTo: './',
+								level: {
+										1: {
+											all: true,
+											replaceMultipleZeros: true, // Contols removing redundant zeros; defaults to (true).
+											replaceZeroUnits: true, // Controls replacing zero values with units; defaults to (true).
+											specialComments: false
+										},
+										2: {
+											mergeAdjacentRules: false, // Controls merging adjacent rules (false). *Note: Might cause unusual results. 
+											mergeIntoShorthands: false, // Controls merging properties into shorthands (false). *Note: Might cause unusual results. 
+											mergeMedia: true, // Controls merging @media rules (true). *Note: Might cause unusual results.
+											mergeNonAdjacentRules: true, // Controls merging non-adjacent rules (true).
+											mergeSemantically: false, // Controls semantic merging (false).
+											overrideProperties: true, // Controls property overriding based on understandability (true).
+											removeEmpty: true, // Controls empty rules and nested blocks (true).
+											reduceNonAdjacentRules: true, // Controls non-adjacent rules (true).
+											removeDuplicateFontRules: true, // Controls duplicate @font-face (true).
+											removeDuplicateMediaBlocks: true, // Controls duplicate @media (true).
+											removeDuplicateRules: true, // Controls duplicate rules (true).
+											removeUnusedAtRules: true, // Controls unused at rule (false). *Note: Available since 4.1.0.
 											restructureRules: false, // Controls rule restructuring (false).
 											skipProperties: [] // Controls which properties won't be optimized, defaults to '[]' which means all will be optimized (since 4.1.0).
 										}
@@ -316,6 +349,7 @@ export const appIconsOptions = {
 										manifest: {
 											name: config.site.shortName,
 											display: config.site.display,
+											start_url: config.site.startURL,
 											orientation: 'notSet',
 											onConflict: 'override',
 											declared: true
