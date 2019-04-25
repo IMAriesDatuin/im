@@ -86,11 +86,20 @@ export const paths = {
 export const jsMinifyOptions = {
 								compress: {	dead_code: config.optimizations.js.removeDeadCode, // Controls unused code (true).
 											drop_console: config.optimizations.js.dropConsole, // Controls console log (true).
+											passes: 2
 								},
 								ie8: config.optimizations.js.ie8Support, // Controls support for IE8 (false).
 								keep_fnames: config.optimizations.js.keepfnames, // Prevent discarding or mangling of function names. Useful for code relying on Function.prototype.name (false).
 								mangle: config.optimizations.js.mangle, // Controls top level variable and function name mangling and to drop unused variables and functions (false).
-								toplevel: config.optimizations.js.toplevel // Controls top level variable and function name mangling and to drop unused variables and functions (false).
+								toplevel: config.optimizations.js.toplevel, // Controls top level variable and function name mangling and to drop unused variables and functions (false).
+								//unsafe: true,
+								//unsafe_comps: true,
+								//unsafe_Function: true,
+								//unsafe_math: true,
+								//unsafe_proto: true,
+								//unsafe_regexp: true,
+								//unsafe_undefined: true,
+								warnings: true
 
 };
 

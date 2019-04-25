@@ -167,7 +167,7 @@ var pageManager = (function pageManager($, window, document, undefined) {
 					var tl = new Timeline({paused: false});
 						tl.to($pageTransition, 1, {scaleX: 0, transformOrigin: 'right center', delay: 2, ease: Expo.easeInOut})
 						  .to($pageTransition.find('.page-transition-text'), 0.5, {autoAlpha: 0, ease: Expo.easeInOut}, '-=1')
-						  .from($('main'), 0.75, {autoAlpha: 0, x: - $('main').width() * 0.5, ease: Expo.easeInOut}, '-=0.75')
+						  .from($('main'), 0.75, {autoAlpha: 0, ease: Expo.easeInOut}, '-=0.75')
 						  .to($('footer'), 0.75, {autoAlpha: 1, ease: Expo.easeInOut}, '-=0.5')
 						  .addCallback( function() { next(); isLoaded(); } );
 
@@ -180,7 +180,7 @@ var pageManager = (function pageManager($, window, document, undefined) {
 						tl.addCallback( function() { isLoading(); } )
 						  .to($pageTransition, 1, {scaleX: 1, transformOrigin: 'left center', ease: Expo.easeInOut})
 						  .to($pageTransition.find('.page-transition-text'), 0.5, {autoAlpha: 1, ease: Expo.easeInOut}, '-=0.5')
-						  .to($('main'), 0.75, {autoAlpha: 0, x: $('main').width() * 0.5, ease: Expo.easeInOut}, '-=1')
+						  .to($('main'), 0.75, {autoAlpha: 0, ease: Expo.easeInOut}, '-=1')
 						  .to($('footer'), 0.75, {autoAlpha: 0, ease: Expo.easeInOut}, '-=1')
 						  .addCallback( function() { next(); } );
 
@@ -201,6 +201,7 @@ var pageManager = (function pageManager($, window, document, undefined) {
 		/* REQUESTS / PAGE LOAD
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:pagePreloaded', function() {
 
 			console.log('Page is preloading...');
@@ -214,12 +215,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Page ready and successfully loaded.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* ANIMATIONS
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:animationOutStart', function() {
 
 			console.log('Adding is-animating class to HTML.');
@@ -237,12 +240,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Animation is done. Content successfully replaced.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* RENDERING
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:willReplaceContent', function() {
 
 			console.log('Content is being replaced...');
@@ -252,12 +257,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Content successfully replaced.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* MOUSE EVENTS
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:hoverLink', function() {
 
 			console.log('Hovering over link.');
@@ -271,12 +278,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Submit button clicked.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* SCROLL EVENTS
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:scrollStart', function() {
 
 			console.log('Scrolling to anchor.');
@@ -290,12 +299,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Currently viewing the same page.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* HISTORY
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:popState', function() {
 
 			console.log('History state changed.');
@@ -305,12 +316,14 @@ var pageManager = (function pageManager($, window, document, undefined) {
 			console.log('Skipping animation.');
 
 		});
+		*/
 
 
 		/* -------------------------------------------------- */
 		/* HELPERS
 		/* -------------------------------------------------- */
 
+		/*
 		$doc.on('swup:openPageInNewTab', function() {
 
 			console.log('Page opened in new tab.');
@@ -327,26 +340,26 @@ var pageManager = (function pageManager($, window, document, undefined) {
 
 			console.log('Currently viewing the same page.');
 
-		})
+		}).on('swup:enabled', function() {
+
+			console.log('Swup enabled.');
+
+		}).on('swup:disabled', function() {
+
+			console.log('Swup destroyed.');
+
+		});
+		*/
 
 
 	/* -------------------------------------------------- */
 	/* INIT
 	/* -------------------------------------------------- */
 
-	$doc.on('swup:enabled', function() {
-
-
-	}).on('swup:disabled', function() {
-
-		console.log('Swup destroyed.');
-
-	});
-
-
 	docReady(function() {
 
 		console.log('Swup initialized.');
+
 
 		// FIRST RUN
 		console.log('Framework initialized.');

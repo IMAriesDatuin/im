@@ -118,11 +118,11 @@ var navPanel = (function navPanel($, window, document, undefined) {
 
 		if ( state === 'is-opening' || state === 'is-open' ) {
 
-			tl.reverse().timeScale(1.75);
+			tl.reverse().timeScale(2.5);
 
 		} else if ( state === 'is-closing' || state === 'is-closed' ) {
 
-			tl.play().timeScale(1.25);
+			tl.play().timeScale(2);
 
 		}
 

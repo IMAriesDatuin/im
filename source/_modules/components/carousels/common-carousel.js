@@ -48,7 +48,7 @@ var commonCarousel = (function commonCarousel($, window, document, undefined) {
 
 			//$self.flickity(options);
 			$self.addClass('is-ready');
-			//Tween.delayedCall( 1, function() { $self.flickity('resize'); } );
+			Tween.delayedCall( 1, function() { $self.flickity('resize'); } );
 			$self.find('.carousel-lazy-load.is-selected').addClass('is-loaded');
 			
 			$self.find('.media-video').find('picture').addClass('hide');

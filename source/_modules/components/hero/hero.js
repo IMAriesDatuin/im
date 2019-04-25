@@ -17,7 +17,7 @@ var hero = (function hero($, window, document, undefined) {
 		/* CACHE
 		/* -------------------------------------------------- */
 
-		var $element = $('.hero-copy');
+		var $element = $('.hero');
 
 
 		/* -------------------------------------------------- */
@@ -27,20 +27,24 @@ var hero = (function hero($, window, document, undefined) {
 		//Tween.set($element.children(), {autoAlpha: 0});
 
 
-		var mySplitText = new SplitText($element.find('.tagline'), {type: 'words'}), 
-			$mySplitText = mySplitText.words;
+		if( $element.find('.tagline').length ) {
+
+			var mySplitText = new SplitText($element.find('.tagline'), {type: 'words'}), 
+				$mySplitText = mySplitText.words;
 
 
-		var tl = new TimelineMax({paused: false});
-			tl.fromTo($element.find('.title'), 1, {autoAlpha: 0, y: 10},
-												  {autoAlpha: 1, y: 0, delay: 3, ease: Back.easeOut})
+			var tl = new TimelineMax({paused: false});
+				tl.fromTo($element.find('.title'), 5, {autoAlpha: 0},
+													  {autoAlpha: 1, delay: 3, ease: Expo.easeOut})
 
-				.staggerFromTo($mySplitText, 1, {autoAlpha: 0, y: 10},
-												{autoAlpha: 1, y: 0, ease: Back.easeOut}, 0.05)
+					.staggerFromTo($mySplitText, 1, {autoAlpha: 0, y: 10},
+													{autoAlpha: 1, y: 0, ease: Expo.easeInOut}, 0.05, '-=4')
 
 
-				.fromTo($element.find('.scroll-to'), 1, {autoAlpha: 0},
-												 		  {autoAlpha: 1, ease: Expo.easeOut});
+					.fromTo($element.find('.scroll-to'), 1, {autoAlpha: 0},
+													 		  {autoAlpha: 1, ease: Expo.easeOut}, '-=3.75');
+
+		}
 
 	}
 

@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.1 preview] - 2019-25-04
+### Added
+- Added posters for video content.
+- Added previous and next hit areas for select carousels.
+
+### Changed
+- General layout adjustements to some components and pages.
+- Tweaked and adjusted page transitions and slightly increased the speed for intro and outro.
+- Slightly increased the speed of the fullscreen menu on forward and reverse animation.
+- General animation adjustments to to speed and timing.
+- Updated the logo.
+
+### Fixed
+- General layout fixes to some components and pages.
+- SplitText should no longer throw an error if a text element it is animating does not exist in the DOM.
+- Removed unused event listeners.
+- Fixed carousel components not resizing accordingly when app has fully loaded.
+- Fixed layout and responsive issues.
+
+
+
+
 
 ## [1.0.0] - 2019-03-04
 ### Added

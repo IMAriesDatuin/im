@@ -108,7 +108,7 @@ var fadeCarousel = (function fadeCarousel($, window, document, undefined) {
 			}).on('change.flickity', function(event, cellIndex) {
 
 				//console.log( 'Sliding to cell ' + (cellIndex + 1) + '.' );
-				media.pauseAll();
+				//media.pauseAll();
 
 			}).on('select.flickity', function(event, cellIndex) {
 

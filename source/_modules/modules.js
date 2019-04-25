@@ -23,7 +23,6 @@ var modules = (function modules($, window, document, undefined) {
 		headroom.init();
 		inView.init();
 		lazyLoad.init();
-		//media.init();
 		Tween.delayedCall(interval.delay, media.init);
 		pageVisibility.init();
 		print.init();
@@ -36,7 +35,7 @@ var modules = (function modules($, window, document, undefined) {
 		/* COMPONENTS
 		/* -------------------------------------------------- */
 
-		component.init();
+		//component.init();
 		parallax.init();
 		Tween.delayedCall(interval.delay, imageParallax.init, ['the-incredible-team']);
 		//imageParallax.init('the-incredible-team');

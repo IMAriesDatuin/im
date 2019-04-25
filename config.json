@@ -418,7 +418,7 @@
 				  "layouts/**/*.js",
 				  ">>pages/**/*.js",
 				  "modules.js",
-				  "_template/**/*.js",
+				  ">>_template/**/*.js",
 				  "index.js"
 				 ]
 		},
