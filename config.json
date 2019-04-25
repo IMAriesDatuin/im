@@ -254,7 +254,7 @@
 			"minify": true,
 			"autoprefix": true,
 			"cascade": true,
-			"flexbox": true,
+			"flexbox": false,
 			"grid": false,
 			"rebase": true,
 			"removeDuplicatedProperties": true,
@@ -263,7 +263,7 @@
 			"support": ["last 2 versions", "ie >= 9", "android >= 4.4", "ios >= 7"]
 		},
 		"critical": {
-			"allow": false,
+			"allow": true,
 			"extract": false,
 			"width": 1920,
 			"height": 1080
