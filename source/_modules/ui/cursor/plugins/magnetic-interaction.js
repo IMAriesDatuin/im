@@ -39,7 +39,7 @@ var magneticInteraction = (function magneticInteraction($, window, document, und
 			var $self = $(this);
 
 			//Tween.to(this, 0.25, {scale: 0.9, ease: Expo.easeInOut});
-			Tween.to($self.find('.magnetic'), 0.25, {scale: 1.05, ease: Back.easeOut});
+			Tween.to(this.querySelector('.magnetic'), 0.25, {scale: 1.05, ease: Back.easeOut});
 			//active = true;
 
 		}).on('mouseleave', function(e) {
@@ -47,7 +47,7 @@ var magneticInteraction = (function magneticInteraction($, window, document, und
 			var $self = $(this);
 
 			//Tween.to(this, 0.25, {scale: 1, ease: Expo.easeInOut});
-			Tween.to($self.find('.magnetic'), 1, {scale: 1, x: 0, y: 0, ease: Expo.easeOut});
+			Tween.to(this.querySelector('.magnetic'), 1, {scale: 1, x: 0, y: 0, ease: Expo.easeOut});
 			//active = false;
 
 		}).on('mousemove', function(e) {

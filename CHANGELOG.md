@@ -9,7 +9,7 @@
 - General layout adjustements to some components and pages.
 - Tweaked and adjusted page transitions and slightly increased the speed for intro and outro.
 - Slightly increased the speed of the fullscreen menu on forward and reverse animation.
-- General animation adjustments to to speed and timing.
+- General animation adjustments to speed and timing.
 - Updated the logo.
 
 ### Fixed
