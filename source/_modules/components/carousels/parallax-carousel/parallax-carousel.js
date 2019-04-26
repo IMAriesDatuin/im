@@ -39,7 +39,7 @@ var parallaxCarousel = (function parallaxCarousel($, window, document, undefined
 			percentPosition: false,
 			rightToLeft: false,
 
-			draggable: '>1',
+			draggable: false,
 			freeScroll: false,
 			wrapAround: false,
 			groupCells: false,
