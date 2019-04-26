@@ -7051,6 +7051,7 @@ var YouTubeIframeRenderer = {
 			end: 0,
 			loop: 0,
 			modestbranding: 0,
+      playlist: 0,
 			playsinline: 0,
 			rel: 0,
 			showinfo: 0,
@@ -7118,7 +7119,7 @@ var YouTubeIframeRenderer = {
 								},
 								length: 1
 							};
-						case 'src':
+						case 'data-src':
 							return youTubeApi.getVideoUrl();
 						case 'readyState':
 							return readyState;
@@ -7133,7 +7134,7 @@ var YouTubeIframeRenderer = {
 			youtube['set' + capName] = function (value) {
 				if (youTubeApi !== null) {
 					switch (propName) {
-						case 'src':
+						case 'data-src':
 							var url = typeof value === 'string' ? value : value[0].src,
 							    _videoId = YouTubeApi.getYouTubeId(url);
 
@@ -7254,6 +7255,7 @@ var YouTubeIframeRenderer = {
 				controls: 0,
 				rel: 0,
 				disablekb: 1,
+        playlist: 0,
 				showinfo: 0,
 				modestbranding: 0,
 				html5: 1,

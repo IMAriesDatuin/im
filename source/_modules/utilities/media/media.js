@@ -87,7 +87,7 @@ var media = (function media($, window, document, undefined) {
 		playText: null,
 		pauseText: null,
 		shimScriptAccess: 'sameDomain',
-		//youtube: null
+		//youtube: ['maxresdefault'],
 		// Do not forget to put a final slash (/)
 		//pluginPath: 'https://cdnjs.com/libraries/mediaelement/',
 		// this will allow the CDN to use Flash without restrictions

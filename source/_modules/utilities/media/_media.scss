@@ -21,10 +21,6 @@ $media-options: (
 
 	$self: '.mejs__';
 
-	#{$self}offscreen {
-		display: none;
-	}
-
 	#{$self}inner {
 
 
@@ -143,6 +139,10 @@ $media-options: (
 
 	}
 
+}
+
+.mejs__offscreen {
+	display: none ;
 }
 
 
