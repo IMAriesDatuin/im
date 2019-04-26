@@ -133,7 +133,8 @@ export const purgeCSSOptions = {
 								content: [paths.build + '**/*.{html,php}',
 										  paths.build + '**/*.js'],
 								css: [paths.build + '**/*.css'],
-								whitelist: ['mejs__container', 'mejs__offscreen']
+								whitelistPatterns: [/\bmejs__/g],
+								whitelistPatternsChildren: [/\bmejs__/g]
 
 };
 
