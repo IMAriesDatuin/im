@@ -260,7 +260,8 @@
 			"removeDuplicatedProperties": true,
 			"removeOutdatedPrefixes": true,
 			"supports": true,
-			"support": ["last 2 versions", "ie >= 9", "android >= 4.4", "ios >= 7"]
+			"support": ["last 2 versions", "ie >= 9", "android >= 4.4", "ios >= 7"],
+			"whitelist": ["/\bmejs__/g"]
 		},
 		"critical": {
 			"allow": true,

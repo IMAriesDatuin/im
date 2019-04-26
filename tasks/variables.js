@@ -134,7 +134,7 @@ export const purgeCSSOptions = {
 										  paths.build + '**/*.js'],
 								css: [paths.build + '**/*.css'],
 								whitelistPatterns: [/\bmejs__/g],
-								whitelistPatternsChildren: [/\bmejs__/g]
+								whitelistPatternsChildren: [config.optimizations.css.whitelist]
 
 };
 

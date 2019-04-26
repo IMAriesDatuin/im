@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.2 preview] - 2019-26-04
+### Added
+- Video posters will now appear when video is paused or done playing.
+- Compiler: Added `whitelist` to `config.json` under `optimizations > css`.
+
+### Changed
+- Playlist should no longer appear when when the video is paused or done playing.
+
+### Fixed
+- Fixed missing classes for video elements.
+- Video posters should now properly display over video source content.
+- Dragging area should no longer affect click to play on video elements. 
+
+
+
+
+
 ## [1.0.1 preview] - 2019-25-04
 ### Added
 - Added posters for video content.
