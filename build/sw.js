@@ -75,6 +75,10 @@ self.__precacheManifest = [
     "revision": "1dede19592d92f97ac0adf6c751c67f8"
   },
   {
+    "url": "assets/blank.png",
+    "revision": "9529390786a6bfeb4ea5197a39d2e410"
+  },
+  {
     "url": "assets/blank.svg",
     "revision": "a618f05d0e890f40750109f67a2dcb7c"
   },
@@ -553,6 +557,10 @@ self.__precacheManifest = [
   {
     "url": "our-work.html",
     "revision": "f876e35aff90810bc4f51f546ebf33b6"
+  },
+  {
+    "url": "safari-pinned-tab.png",
+    "revision": "1bc4848d426ba6886aeb4e575332ae82"
   },
   {
     "url": "safari-pinned-tab.svg",
