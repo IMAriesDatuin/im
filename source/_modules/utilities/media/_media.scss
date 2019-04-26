@@ -22,7 +22,7 @@ $media-options: (
 	$self: '.mejs__';
 
 	#{$self}offscreen {
-
+		display: none;
 	}
 
 	#{$self}inner {

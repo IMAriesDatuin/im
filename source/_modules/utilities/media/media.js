@@ -135,14 +135,14 @@ var media = (function media($, window, document, undefined) {
 			});
 			*/
 
-			/*
+			
 			media.addEventListener('click', function() {
 
 				console.log('Clicked play.');
 				media.play();
 
 			}, false);
-			*/
+			
 
 
 
