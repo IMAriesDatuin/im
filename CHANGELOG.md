@@ -6,7 +6,7 @@
 - Compiler: Added `whitelist` to `config.json` under `optimizations > css`.
 
 ### Changed
-- Playlist should no longer appear when when the video is paused or done playing.
+- Playlist should no longer appear when the video is paused or done playing.
 
 ### Fixed
 - Fixed missing classes for video elements.
